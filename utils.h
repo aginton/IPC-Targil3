@@ -1,12 +1,14 @@
 #pragma once
 
+#include "datastructs.h"
+
 typedef enum rcsendMsg {
     SEND_MSG_SUCC = 0,
     REACHED_MAX_ATTEMPTS,
     UNKNOWN_ERR
 } SEND_MSG_RC;
 
-void createAndEncryptNewPW(EncryptedPWParams* out_key_and_pws);
+
 
 Msg* allocMsgStruct(unsigned int msg_size);
 void setMsgType(Msg* out_msg_p, MSG_TYPE_E msg_type);
@@ -27,3 +29,5 @@ bool parseAndOutputRoundsToLive(int argc, char *argv[], unsigned int* out_rounds
 
 long getNumOfMsgs(mqd_t* mqd_p);
 void printNumOfMsgsAtMQ(mqd_t* mqd_p, char* mq_name);
+int openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p);
+int openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p);

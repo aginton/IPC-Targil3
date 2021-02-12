@@ -53,20 +53,20 @@ typedef struct msgStruct{
 
 typedef struct pw
 {
-	char pw_data[MAX_PW_LEN];
+	char pw_data[MAX_PW_LEN + 1];
     unsigned int pw_data_len;
     unsigned int pw_id;
 } PW;
 
 typedef struct key
 {
-    char key[KEY_LEN];
+    char key[KEY_LEN + 1];
     unsigned int key_len;
 } Key;
 
 typedef struct connectReq{
     unsigned int client_id;
-    char mq_name[MAX_MQ_NAME_LEN];
+    char mq_name[MAX_MQ_NAME_LEN + 1];
 } ConnectReq;
 
 typedef struct disconnectReq{

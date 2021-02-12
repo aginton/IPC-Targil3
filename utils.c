@@ -6,8 +6,8 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "include.h"
 #include "utils.h"
+
 #include "mta_crypt.h"
 #include "mta_rand.h"
 
@@ -49,33 +49,9 @@ Msg* readMessage(mqd_t* qd_p)
 
 
 
-
-
-
-
-
-
-void createAndEncryptNewPW(EncryptedPWParams* out_key_and_pws)
-{
-    createPrintablePW(&(out_key_and_pws->plain_pw));
-    MTA_get_rand_data(out_key_and_pws->key.key, out_key_and_pws->key.key_len);
-
-    if (MTA_CRYPT_RET_OK != MTA_encrypt(
-                                out_key_and_pws->key.key, 
-                                out_key_and_pws->key.key_len, 
-                                out_key_and_pws->plain_pw.pw_data, 
-                                out_key_and_pws->plain_pw.pw_data_len, 
-                                out_key_and_pws->encrypted_pw.pw_data, 
-                                &(out_key_and_pws->encrypted_pw.pw_data_len)))
-    {
-        printf("An error occured with MTA_encrypt()...\n"); //TODO: Change message
-        exit(-1);
-    }
-}
-
 void createPrintablePW(PW *out_plain_pw)
 {
-    for (int i = 0; i < PW_LEN; ++i)
+    for (int i = 0; i < PLAIN_PW_LEN; ++i)
     {
         out_plain_pw->pw_data[i] = getPrintableChar();
     }
@@ -192,23 +168,30 @@ void printNumOfMsgsAtMQ(mqd_t* mqd_p, char* mq_name)
     printf("Currently there are %ld messages at mq %s\n", getNumOfMsgs(mqd_p), mq_name);
 }
 
-int openWriteOnlyMQ(char* mq_name)
+int openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
 {
-    if (-1 == (server_mq = mq_open (MQ_SERVER_NAME, O_CREAT | O_WRONLY | O_NONBLOCK, QUEUE_PERMISSIONS, &attr)))
+    int mqd = mq_open(mq_name, O_CREAT | O_WRONLY , QUEUE_PERMISSIONS, attr_p);
+    
+    if (-1 == mqd)
     {
-        perror ("Server: mq_open (server)");
-        exit (1);
+        perror ("openWriteOnlyMQ: mq_open ");
+        // exit (1);
     }
-    return 
+    return mqd; 
 }
 
-int openReadOnlyMQ(char* mq_name, bool unlink, )
+int openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p)
 {
-    mq_unlink(MQ_SERVER_NAME);
-    if (-1 == (server_mq = mq_open (MQ_SERVER_NAME, O_CREAT | O_RDONLY | O_NONBLOCK, QUEUE_PERMISSIONS, &attr)))
+    if (unlink)
     {
-        perror ("Server: mq_open (server)");
-        exit (1);
+        mq_unlink(mq_name);
     }
-    return 
+    int mqd = mq_open (mq_name, O_CREAT | O_RDONLY , QUEUE_PERMISSIONS, attr_p);
+    
+    if (-1 == mqd)
+    {
+        perror ("openReadOnlyMQ: mq_open ");
+        //exit (1);
+    }
+    return mqd;
 }
