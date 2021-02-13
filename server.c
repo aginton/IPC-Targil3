@@ -187,17 +187,13 @@ void handleMsg(ServerPW* server_pw_p, mqd_t* server_mq_p, bool connected_clients
 
 int main()
 {
-    mqd_t server_mq;
+    
     struct mq_attr attr;
     setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
     //printf("[%s process %d]\t\tmain() - going to try and open mq_server.\n", server_src, getpid());
 
-    mq_unlink(MQ_SERVER_NAME);
-    if (-1 == (server_mq = mq_open (MQ_SERVER_NAME, O_CREAT | O_EXCL | O_RDONLY, QUEUE_PERMISSIONS, &attr)))
-    {
-        perror ("Server: mq_open (server)");
-        exit (1);
-    }
+    mqd_t server_mq = openReadOnlyMQ(MQ_SERVER_NAME, true, &attr);
+    
 
     ServerPW server_pw;
     bool connected_clients[MAX_NUMBER_CONNECTIONS];

@@ -127,35 +127,6 @@ void setMQAttrbs(long flags, long max_num_messages, long max_msg_size, long cur_
     out_attr_p->mq_curmsgs = cur_num_msgs;
 }
 
-
-bool parseAndOutputRoundsToLive(int argc, char *argv[], unsigned int* out_rounds_to_live)
-{
-    if (argc == 2)
-    {
-        return true;
-    }
-    else if (argc == 4)
-    {
-        if (0 != strcmp("-n", argv[2]))
-        {
-            printf("Error: Arguments must be of form <num_of_decrypters> [-n rounds_to_live]\n");
-            return false;
-        }
-        unsigned int rounds_to_live = atoi(argv[3]);
-        if (0 == rounds_to_live)
-        {
-            printf("Error parsing rounds_to_live value.\n");
-            return false;
-        }
-        *out_rounds_to_live = rounds_to_live;
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 long getNumOfMsgs(mqd_t* mqd_p)
 {
     struct mq_attr mqAttr = {0};
@@ -168,7 +139,7 @@ void printNumOfMsgsAtMQ(mqd_t* mqd_p, char* mq_name)
     printf("Currently there are %ld messages at mq %s\n", getNumOfMsgs(mqd_p), mq_name);
 }
 
-int openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
+mqd_t openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
 {
     int mqd = mq_open(mq_name, O_CREAT | O_WRONLY , QUEUE_PERMISSIONS, attr_p);
     
@@ -180,7 +151,7 @@ int openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
     return mqd; 
 }
 
-int openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p)
+mqd_t openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p)
 {
     if (unlink)
     {
@@ -191,7 +162,7 @@ int openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p)
     if (-1 == mqd)
     {
         perror ("openReadOnlyMQ: mq_open ");
-        //exit (1);
+        exit (1);
     }
     return mqd;
 }
