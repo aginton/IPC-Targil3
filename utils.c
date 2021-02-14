@@ -26,25 +26,22 @@ void setMsgType(Msg* out_msg_p, MSG_TYPE_E msg_type)
 
 
 
-bool doesMQHaveMessages(mqd_t* qd_p)
+bool doesMQHaveMessages(mqd_t mqd)
 {
     struct mq_attr attr;   // To store queue attributes
-    mq_getattr (*qd_p, &attr);
+    mq_getattr (mqd, &attr);
     return (attr.mq_curmsgs > 0);
 }
 
-Msg* readMessage(mqd_t* qd_p)
+void readMessage(mqd_t mqd, Msg* out_msg)
 {
-    Msg* msg_p = allocMsgStruct(MQ_MAX_MSG_SIZE); // Allocate big size in advance
-    ASSERT(msg_p != NULL, "inside readMessage, allocMsgStruct(MQ_MAX_MSG_SIZE) returned NULL");
+    ASSERT(out_msg != NULL, "inside readMessage, out_msg cannot be NULL");
 
-    //TODO: Should this be a while loop? 
-    if ((mq_receive (*qd_p, (char *)msg_p, MQ_MAX_MSG_SIZE, NULL)) == -1)
+    if (-1 == mq_receive (mqd, (char *)out_msg, MQ_MAX_MSG_SIZE, NULL))
     {
         printf("Error with readMessage.\n");
+        exit(1);
     }
-
-    return msg_p;
 }
 
 
@@ -82,16 +79,14 @@ bool isPrintable(char *str, unsigned int str_len)
     return true;
 }
 
-
-
-Msg* createMsg(MSG_TYPE_E type, void* src_data_ptr, size_t bytes_of_data_to_copy)
-{
-    Msg* msg_p = malloc(sizeof(Msg) + bytes_of_data_to_copy);
-    ASSERT(msg_p != NULL, "inside createMsg(), malloc(sizeof(Msg) + bytes_of_data_to_copy returned NULL.");
-    setMsgType(msg_p, type);
-    memcpy(msg_p->data, src_data_ptr, bytes_of_data_to_copy);
-    return msg_p;
-}
+// Msg* createMsg(MSG_TYPE_E type, void* src_data_ptr, size_t bytes_of_data_to_copy)
+// {
+//     Msg* msg_p = malloc(sizeof(Msg) + bytes_of_data_to_copy);
+//     ASSERT(msg_p != NULL, "inside createMsg(), malloc(sizeof(Msg) + bytes_of_data_to_copy returned NULL.");
+//     setMsgType(msg_p, type);
+//     memcpy(msg_p->data, src_data_ptr, bytes_of_data_to_copy);
+//     return msg_p;
+// }
 
 
 bool isPWsMatch(PW* pw1_p, PW* pw2_p)
@@ -103,9 +98,9 @@ bool isPWsMatch(PW* pw1_p, PW* pw2_p)
     return (0 == strcmp(pw1_p->pw_data, pw2_p->pw_data));
 }
 
-SEND_MSG_RC sendMsg(mqd_t* mqd_p, Msg* mg_p, size_t msg_size, unsigned int prio)
+SEND_MSG_RC sendMsg(mqd_t mqd, Msg* mg_p, size_t msg_size, unsigned int prio)
 {
-    while (0 != mq_send (*mqd_p, (const char *)mg_p, msg_size, prio))
+    while (0 != mq_send (mqd, (const char *)mg_p, msg_size, prio))
     {
         // The call failed.  Make sure errno is EAGAIN
         if (errno != EAGAIN) 
@@ -134,10 +129,10 @@ long getNumOfMsgs(mqd_t* mqd_p)
     return mqAttr.mq_curmsgs;
 }
 
-void printNumOfMsgsAtMQ(mqd_t* mqd_p, char* mq_name)
-{
-    printf("Currently there are %ld messages at mq %s\n", getNumOfMsgs(mqd_p), mq_name);
-}
+// void printNumOfMsgsAtMQ(mqd_t* mqd_p, char* mq_name)
+// {
+//     printf("Currently there are %ld messages at mq %s\n", getNumOfMsgs(mqd_p), mq_name);
+// }
 
 mqd_t openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
 {

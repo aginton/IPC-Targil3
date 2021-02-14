@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -g
 LDFLAGS = -pthread -lmta_crypt -lmta_rand -lrt
 OBJFILES = launcher.o decrypter.o server.o utils.o
-TARGET =  server launcher decrypter
+TARGET =  server decrypter
 RM = rm -f   # rm command
 
 

@@ -14,7 +14,7 @@
 #define DECRYPTER_MQ_BASE_NAME "/decrypter_mq_"
 #define MAX_MQ_NAME_LEN 24
 #define MAX_PW_LEN 64
-#define PLAIN_PW_LEN 16
+#define PLAIN_PW_LEN 8
 #define KEY_LEN (PLAIN_PW_LEN / 8)
 
 

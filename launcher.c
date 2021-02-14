@@ -3,7 +3,6 @@
 #include <mqueue.h>
 #include <stdbool.h>
 #include <limits.h>
-#include "include.h"
 #include "utils.h"
 
 
@@ -112,8 +111,7 @@ bool parseArguments(int argc, char *argv[], unsigned int* out_num_of_decrypters,
 
 int main(int argc, char *argv[])
 {
-    //printf("[%s process %d]\t\tEntered main().\n", launcher_str, getpid());
-    // parse arguments: number of decrypters and optional rounds-to-live [-n]
+    
     unsigned int num_of_decrypters = 0;
     unsigned int rounds_to_live = UINT_MAX;
 
