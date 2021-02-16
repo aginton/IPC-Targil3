@@ -69,6 +69,15 @@ char getPrintableChar()
 
 bool isPrintable(char *str, unsigned int str_len)
 {
+    //DEBUG
+    // printf("isPrintable called with str_len=%u, and str <", str_len);
+    // for (int i = 0; i < str_len; ++i)
+    // {
+    //     printf("%d ", str[i]);
+    // }
+    // printf(">\n");
+
+
     for (int i = 0; i < str_len; ++i)
     {
         if (!isprint(str[i]))
@@ -160,4 +169,47 @@ mqd_t openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p)
         exit (1);
     }
     return mqd;
+}
+
+void printPWDetails(PW* encrypted_pw_p)
+{
+    printf("{id=%u, len=%u, bytes=<", encrypted_pw_p->pw_id, encrypted_pw_p->pw_data_len);
+    for (int i = 0; i < MAX_PW_LEN; ++i)
+    {
+        printf("%d ", encrypted_pw_p->pw_data[i]);
+    }
+    printf(">}\n");
+}
+
+void printKeyDetails(Key* key_p)
+{
+    printf("{key_len=%d, data=<", key_p->key_len);
+    for (int i = 0; i < 8; ++i)
+    {
+        printf("%d ", key_p->key[i]);
+    }
+    printf(">}\n");
+}
+
+void printPWsAndKey(PW* encrypted_pw_p, PW* plain_pw_p, Key* key_p)
+{
+    
+    printf("Plain PW: ");
+    printPWDetails(plain_pw_p);
+    
+    printf("Key: ");
+    printKeyDetails(key_p);
+    
+    printf("Encrypted PW: ");
+    printPWDetails(encrypted_pw_p);
+
+    
+}
+
+void debugMTADecrypt(PW* encrypted_pw_p, Key* key_p)
+{
+    PW plain_pw = {0};
+    MTA_decrypt(key_p->key, key_p->key_len, encrypted_pw_p->pw_data, encrypted_pw_p->pw_data_len, plain_pw.pw_data, &plain_pw.pw_data_len);
+    printf("debugMTADecrypt():\n");
+    printPWsAndKey(encrypted_pw_p, &plain_pw, key_p);
 }

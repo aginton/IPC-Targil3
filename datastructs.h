@@ -14,7 +14,7 @@
 #define DECRYPTER_MQ_BASE_NAME "/decrypter_mq_"
 #define MAX_MQ_NAME_LEN 24
 #define MAX_PW_LEN 64
-#define PLAIN_PW_LEN 8
+#define PLAIN_PW_LEN 16
 #define KEY_LEN (PLAIN_PW_LEN / 8)
 
 
@@ -60,8 +60,9 @@ typedef struct pw
 
 typedef struct key
 {
-    char key[KEY_LEN + 1];
+    char key[8 + 1];
     unsigned int key_len;
+    int dummy;
 } Key;
 
 typedef struct connectReq{
