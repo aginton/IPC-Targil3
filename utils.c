@@ -48,7 +48,7 @@ void readMessage(mqd_t mqd, Msg* out_msg)
 
 void createPrintablePW(PW *out_plain_pw)
 {
-    for (int i = 0; i < PLAIN_PW_LEN; ++i)
+    for (int i = 0; i < out_plain_pw->pw_data_len; ++i)
     {
         out_plain_pw->pw_data[i] = getPrintableChar();
     }
@@ -146,7 +146,8 @@ long getNumOfMsgs(mqd_t* mqd_p)
 mqd_t openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
 {
     int mqd = mq_open(mq_name, O_CREAT | O_WRONLY , QUEUE_PERMISSIONS, attr_p);
-    
+    mq_unlink(mq_name);
+
     if (-1 == mqd)
     {
         perror ("openWriteOnlyMQ: mq_open ");
@@ -155,14 +156,10 @@ mqd_t openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
     return mqd; 
 }
 
-mqd_t openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p)
+mqd_t openReadOnlyMQ(char* mq_name, struct mq_attr* attr_p)
 {
-    if (unlink)
-    {
-        mq_unlink(mq_name);
-    }
     int mqd = mq_open (mq_name, O_CREAT | O_RDONLY , QUEUE_PERMISSIONS, attr_p);
-    
+
     if (-1 == mqd)
     {
         perror ("openReadOnlyMQ: mq_open ");
@@ -174,7 +171,7 @@ mqd_t openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p)
 void printPWDetails(PW* encrypted_pw_p)
 {
     printf("{id=%u, len=%u, bytes=<", encrypted_pw_p->pw_id, encrypted_pw_p->pw_data_len);
-    for (int i = 0; i < MAX_PW_LEN; ++i)
+    for (int i = 0; i < encrypted_pw_p->pw_data_len; ++i)
     {
         printf("%d ", encrypted_pw_p->pw_data[i]);
     }

@@ -62,10 +62,11 @@ int createAndEncryptNewPW(ServerPW *out_server_pw_p)
         exit(-1);
     }
 
-    printf("\n------------------------------------------------------------------------------------------------------------\n");
-    printf("Server just generated new pws and key:\n");
-    printPWsAndKey(encrypted_pw_p, plain_pw_p, key_p);
-    printf("------------------------------------------------------------------------------------------------------------\n\n");
+    printf("\n[SERVER]\tCreated plain pw %s with len=%d and id= %d\n", plain_pw_p->pw_data, plain_pw_p->pw_data_len, plain_pw_p->pw_id);
+    // printf("\n------------------------------------------------------------------------------------------------------------\n");
+    // printf("Server just generated new pws and key:\n");
+    // printPWsAndKey(encrypted_pw_p, plain_pw_p, key_p);
+    // printf("------------------------------------------------------------------------------------------------------------\n\n");
     
     return 0;
 }
@@ -123,7 +124,7 @@ void handleConnectRequest(ConnectReq* connect_req_p, PW* encrypted_pw_p, bool co
 {
     ASSERT((NULL != connect_req_p) && (NULL != encrypted_pw_p), "handleConnectRequest received NULL pointer\n");
 
-    printf("[SERVER]:   \t\tReceived connection request from client #%d\n", connect_req_p->client_id);
+    printf("[SERVER]:\tReceived connection request from client #%d\n", connect_req_p->client_id);
 
     int client_id = connect_req_p->client_id;
     
@@ -131,7 +132,7 @@ void handleConnectRequest(ConnectReq* connect_req_p, PW* encrypted_pw_p, bool co
     {
         if (connected_clients[client_id])
         {
-            printf("[SERVER]\t\tAlready has a connected client with id=%d\n", client_id);
+            printf("[SERVER]\tAlready has a connected client with id=%d\n", client_id);
             return;
         }
     }
@@ -144,10 +145,10 @@ void handleConnectRequest(ConnectReq* connect_req_p, PW* encrypted_pw_p, bool co
     struct mq_attr attr;
     setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
     client_mqs[client_id] = openWriteOnlyMQ(connect_req_p->mq_name, &attr);
-    printf("[SERVER]:   \t\tAdded client #%d\n", connect_req_p->client_id);
+    printf("[SERVER]:\tAdded client #%d\n", connect_req_p->client_id);
     
     //DEbug
-    printf("[SERVER]:   \t\tSending following encrypted password msg to client #%d: \n", connect_req_p->client_id);
+    printf("[SERVER]:\tSending following encrypted pw to client #%d: ", connect_req_p->client_id);
     printPWDetails(encrypted_pw_p);
     sendClientEncryptedPW(encrypted_pw_p, client_mqs[client_id]);
 }
@@ -168,20 +169,24 @@ void handlePWGuess(DecrypterMsg* decrypter_msg_p, ServerPW* server_pw_p, bool co
     ASSERT(NULL != server_pw_p, "Error: server_pw_p is NULL in handlePWGuess");
 
     //DEBUG
-    printf("[SERVER]:   \t\tReceived following DecrypterMsg: client_id=%d, ", decrypter_msg_p->client_id);
-    printPWDetails(&decrypter_msg_p->decrypted_pw_guess);
+    // printf("[SERVER]:   \t\tReceived following DecrypterMsg: client_id=%d, ", decrypter_msg_p->client_id);
+    // printPWDetails(&decrypter_msg_p->decrypted_pw_guess);
+    printf("[SERVER]:\tReceived plain pw guess %s with id=%d from client_id=%d\n", decrypter_msg_p->decrypted_pw_guess.pw_data, decrypter_msg_p->decrypted_pw_guess.pw_id,  decrypter_msg_p->client_id);
+
     DECRYPTED_PW_GUESS_RET_STATUS rc = checkDecryptedPWGuess(server_pw_p->plain_pw, decrypter_msg_p);
     switch (rc)
     {
     case PWS_MATCH:
-        printf("Decrypter %d correctly decrypted plain password %s with id %d!\n", decrypter_msg_p->client_id, decrypter_msg_p->decrypted_pw_guess.pw_data, decrypter_msg_p->decrypted_pw_guess.pw_id);
+        //printf("Decrypter %d correctly decrypted plain password %s with id %d!\n", decrypter_msg_p->client_id, decrypter_msg_p->decrypted_pw_guess.pw_data, decrypter_msg_p->decrypted_pw_guess.pw_id);
         createAndEncryptNewPW(server_pw_p);
         for (int i = 0; i < MAX_NUMBER_CONNECTIONS; ++i)
         {
             if (connected_clients[i] == true)
             {
-                printf("[SERVER]:   \t\tSending following encrypted password msg to client #%d: \n", i);
-                printPWDetails(&(server_pw_p->encrypted_pw));
+                printf("[SERVER]:\tSending following encrypted pw to client #%d: ", i);
+                printPWDetails(&server_pw_p->encrypted_pw);
+                // printf("[SERVER]:   \t\tSending following encrypted password msg to client #%d: \n", i);
+                // printPWDetails(&(server_pw_p->encrypted_pw));
                 sendClientEncryptedPW(&(server_pw_p->encrypted_pw), client_mqs[i]);
             }
         }
@@ -202,21 +207,20 @@ DECRYPTED_PW_GUESS_RET_STATUS checkDecryptedPWGuess(PW plain_pw, DecrypterMsg* d
 
     if (pw_guess->pw_id != plain_pw.pw_id)
     {
-        printf("[Server]:   \t\tDecrypter #%d incorrectly used id #%d. Should be using id #%d.\n",
+        printf("[SERVER]:\tDecrypter #%d incorrectly used id #%d. Should be using id #%d.\n",
                decrypter_msg_p->client_id, pw_guess->pw_id, plain_pw.pw_id);
         return PW_GUESS_ID_INVALID;
     }
     if (strcmp(pw_guess->pw_data, plain_pw.pw_data) != 0)
     {
-        printf("[Server]:   \t\tDecrypter #%d incorrectly guessed password %s with id=%d!\n", decrypter_msg_p->client_id, decrypter_msg_p->decrypted_pw_guess.pw_data, decrypter_msg_p->decrypted_pw_guess.pw_id);
+        printf("[SERVER]:\tDecrypter #%d incorrectly guessed password %s with id=%d!\n", decrypter_msg_p->client_id, decrypter_msg_p->decrypted_pw_guess.pw_data, decrypter_msg_p->decrypted_pw_guess.pw_id);
         return PWS_DONT_MATCH;
     }
 
     //passwords match!
-    printf("[Server]:   \t\tDecrypter #%d successfully decrypted password %s!\n", decrypter_msg_p->client_id, plain_pw.pw_data);
+    printf("[SERVER]:\tDecrypter #%d successfully decrypted password %s!\n", decrypter_msg_p->client_id, plain_pw.pw_data);
     return PWS_MATCH;
 }
-
 
 void handleMsg(ServerPW* server_pw_p, mqd_t server_mq, bool connected_clients[], mqd_t client_mqs[])
 {
@@ -244,20 +248,20 @@ void handleMsg(ServerPW* server_pw_p, mqd_t server_mq, bool connected_clients[],
         break;
     
     default:
-        printf("[Server process %d]\t\tserverRespondToMessage() - received message of unknown type.\n", getpid());
+        printf("[Server process %d]\tserverRespondToMessage() - received message of unknown type.\n", getpid());
         break;
     }
 }
 
-
 void initServerPW(ServerPW* server_pw_p)
 {
-    //memset(server_pw_p->key.key, 0, 8);
+    memset(&server_pw_p->key, 0, sizeof(Key));
+    memset(&server_pw_p->encrypted_pw, 0, sizeof(PW));
+    memset(&server_pw_p->plain_pw, 0, sizeof(PW));
 
     server_pw_p->plain_pw.pw_data_len = PLAIN_PW_LEN;
     server_pw_p->key.key_len = KEY_LEN;
 }
-
 
 // //DEBUG
 // void printServerPW(ServerPW* server_pw_p, char* str)
@@ -275,7 +279,7 @@ int main()
     setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
     //printf("[%s process %d]\t\tmain() - going to try and open mq_server.\n", server_src, getpid());
 
-    mqd_t server_mq = openReadOnlyMQ(MQ_SERVER_NAME, true, &attr);
+    mqd_t server_mq = openReadOnlyMQ(MQ_SERVER_NAME, &attr);
     
     ServerPW server_pw = {0};
     initServerPW(&server_pw);

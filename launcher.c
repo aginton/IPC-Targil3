@@ -31,7 +31,7 @@ char* createPathToProgramString(char* path_to_program, char* program_name)
 
 void launchServer()
 {
-    printf("[%s process %d]\t\tEntered launcherServer().\n", launcher_str, getpid());
+    printf("[%s process %d]\tEntered launcherServer().\n", launcher_str, getpid());
     pid_t server_pid;
     char* path = NULL;
     
@@ -42,27 +42,27 @@ void launchServer()
 	{
 		execv(path, argv);
 	}
-    printf("[%s process %d]\t\tSpawned server process with pid=%d.\n", launcher_str, getpid(), server_pid);
+    printf("[%s process %d]\tSpawned server process with pid=%d.\n", launcher_str, getpid(), server_pid);
     free(path); //only need to reclaim memory in parent process
-    printf("[%s process %d]\t\tFinished launcherServer().\n", launcher_str, getpid());
+    printf("[%s process %d]\tFinished launcherServer().\n", launcher_str, getpid());
 }
 
 
 void launchDecrypters(unsigned int num_of_decrypters, unsigned int rounds_to_live)
 {
-    printf("[%s process %d]\t\tEntered launchDecrypters(), given %d decrypters to spawn and with rounds_to_live=%u.\n", launcher_str, getpid(), num_of_decrypters, rounds_to_live);
+    printf("[%s process %d]\tEntered launchDecrypters(), given %d decrypters to spawn and with rounds_to_live=%u.\n", launcher_str, getpid(), num_of_decrypters, rounds_to_live);
     pid_t decrypters_pid[num_of_decrypters];
 
     char* decrypter_program_path = createPathToProgramString(RELATIVE_PATH_TO_PROGRAMS, DECRYPTER_PROGRAM_NAME);
     char rounds_to_live_str[11]; //max value is 4294967295, which is 10 chars
     snprintf(rounds_to_live_str, sizeof(rounds_to_live_str), "%u", rounds_to_live);  //https://stackoverflow.com/questions/49765045/how-to-pass-a-variable-via-exec
-    printf("[%s process %d]\t\trounds_to_live_str=%s\n", launcher_str, getpid(), rounds_to_live_str);
+    printf("[%s process %d]\trounds_to_live_str=%s\n", launcher_str, getpid(), rounds_to_live_str);
     for (int i = 0; i < num_of_decrypters; ++i)
     {
         char id_str[3];
         snprintf(id_str, sizeof(id_str), "%d", i+1);
         char* args[] = {DECRYPTER_PROGRAM_NAME, id_str, "-n", rounds_to_live_str, NULL};
-        printf("[%s process %d]\t\tAbout to exec using path %s\n", launcher_str, getpid(), decrypter_program_path);
+        printf("[%s process %d]\tAbout to exec using path %s\n", launcher_str, getpid(), decrypter_program_path);
         decrypters_pid[i] = vfork();
         if (decrypters_pid[i] == 0)
         {
@@ -70,10 +70,10 @@ void launchDecrypters(unsigned int num_of_decrypters, unsigned int rounds_to_liv
             printf("UH OH!!!\n");
             // execv(decrypter_program_path, args);
         }
-        printf("[%s process %d]\t\tSpawned decrypter with pid=%d\n", launcher_str, getpid(), decrypters_pid[i]);
+        printf("[%s process %d]\tSpawned decrypter with pid=%d\n", launcher_str, getpid(), decrypters_pid[i]);
     }
     free(decrypter_program_path);
-    printf("[%s process %d]\t\tFinished launchDecrypters().\n", launcher_str, getpid());
+    printf("[%s process %d]\tFinished launchDecrypters().\n", launcher_str, getpid());
 }
 
 bool parseAndOutputNumOfDecrypters(int argc, char *argv[], unsigned int* out_num_of_decrypters)
@@ -117,14 +117,14 @@ int main(int argc, char *argv[])
 
     if (!parseArguments(argc, argv, &num_of_decrypters, &rounds_to_live))
     {
-        printf("[%s process %d]\t\tparseArguments returned false.\n", launcher_str, getpid());
+        printf("[%s process %d]\tparseArguments returned false.\n", launcher_str, getpid());
         exit(1);
     }
 
-    printf("[%s process %d]\t\tFinished parseArguments, found num_decrypters=%d and rounds_to_live=%u\n", launcher_str, getpid(), num_of_decrypters, rounds_to_live);
+    printf("[%s process %d]\tFinished parseArguments, found num_decrypters=%d and rounds_to_live=%u\n", launcher_str, getpid(), num_of_decrypters, rounds_to_live);
     launchServer();
     launchDecrypters(num_of_decrypters, rounds_to_live);
-    printf("[%s process %d]\t\tFinished spawning server and decrypters.\n", launcher_str, getpid());
+    printf("[%s process %d]\tFinished spawning server and decrypters.\n", launcher_str, getpid());
     pause();
     return 0;
 }

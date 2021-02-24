@@ -33,7 +33,7 @@ bool parseAndOutputRoundsToLive(int argc, char *argv[], unsigned int* out_rounds
 long getNumOfMsgs(mqd_t* mqd_p);
 //void printNumOfMsgsAtMQ(mqd_t* mqd_p, char* mq_name);
 mqd_t openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p);
-mqd_t openReadOnlyMQ(char* mq_name, bool unlink, struct mq_attr* attr_p);
+mqd_t openReadOnlyMQ(char* mq_name, struct mq_attr* attr_p);
 
 void printPWDetails(PW* encrypted_pw_p);
 void printKeyDetails(Key* key_p);
