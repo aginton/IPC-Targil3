@@ -11,10 +11,13 @@
 #include "datastructs.h"
 #include "utils.h"
 
+#define DISCONNECT (true)
+#define CONNECT (false)
 
 bool parseMQName(int argc, char* argv[], int* out_client_id, char out_mq_name[]);
+
 bool parseProgramParams(int argc, char* argv[], int* out_client_id, char out_mq_name[], int* out_num_of_rounds_p);
-bool parseRoundsToLive(int argc, char* argv[], int* out_rounds_to_live);
+
 
 
 //TODO: Change client_id (and other arguments) to global
@@ -67,48 +70,23 @@ bool parseMQName(int argc, char* argv[], int* out_client_id, char out_mq_name[])
     return true;
 }
 
-bool parseRoundsToLive(int argc, char* argv[], int* out_rounds_to_live)
+bool updateEncryptedPW(mqd_t mq_to_read_from, Msg* incoming_msg_p)
 {
-    ASSERT(NULL != out_rounds_to_live, "out_rounds_to_live is NULL in parseRoundsToLive");
-
-    if (argc < 3)
+    if (doesMQHaveMessages(mq_to_read_from))
     {
-        *out_rounds_to_live = -1;
+        // DEBUG:
+        PW* encrypted_pw_p = &((EncrypterMsg*)(&incoming_msg_p->data))->encrypted_pw;
+        printPWDetails(encrypted_pw_p);
+        //
+
+        readMessage(mq_to_read_from, incoming_msg_p);
         return true;
     }
 
-    if ((0 != strcmp(argv[2], "-n")) || argc < 4)
-    {   
-        printf("Error: Arguments must be in the format <id> [-n <number of rounds>]\n");
-        return false;
-    }
-
-    unsigned int number_of_rounds = atoi(argv[3]);
-    if (0 == number_of_rounds)
-    {
-        printf("Error: number of rounds must be a positive integer.\n");
-        return false;
-    }
-    
-    *out_rounds_to_live = number_of_rounds;
-    return true;
+    return false;
 }
 
-
-void sendConnectReq(mqd_t server_mq, int client_id, char* client_mq_name)
-{
-    printf("[Decrypter #%d]:\tSending connection request to server.\n", client_id);
-    uint8_t buffer[sizeof(Msg) + sizeof(ConnectReq)] = {0};
-    Msg* msg_p = (Msg*)buffer;
-    msg_p->msg_type = CONNECT_REQUEST;
-    ConnectReq* connect_request_msg = (ConnectReq*)(msg_p->data);
-    connect_request_msg->client_id = client_id;
-    strcpy(connect_request_msg->mq_name, client_mq_name);
-    sendMsg(server_mq, msg_p, MQ_MAX_MSG_SIZE, 10);
-    
-}
-
-void generatePWGuess(int client_id, mqd_t mq_to_read_from, Msg *incoming_msg_p, PW* out_plain_pw_guess_p)
+void generatePWGuess(int client_id, mqd_t mq_to_read_from, Msg* incoming_msg_p, PW* out_plain_pw_guess_p)
 {
     //readMessage(mq_to_read_from, incoming_msg_p);
     //printf("[Decrypter #%d]:\t\tTrying to generate printable pw guess.\n", client_id);
@@ -120,7 +98,6 @@ void generatePWGuess(int client_id, mqd_t mq_to_read_from, Msg *incoming_msg_p, 
     out_plain_pw_guess_p->pw_id = encrypted_pw_p->pw_id;
     printf("\n[Decrypter #%d]:\tEntered generatePWGuess with following encrypted pw: ", client_id);
     printPWDetails(encrypted_pw_p);
-    
     
     do
     {
@@ -140,25 +117,20 @@ void generatePWGuess(int client_id, mqd_t mq_to_read_from, Msg *incoming_msg_p, 
         }
 
         // Check if encrypted password changed while generating a printable guess: 
-        if (doesMQHaveMessages(mq_to_read_from))
+        if (updateEncryptedPW(mq_to_read_from, incoming_msg_p))
         {
             printf("[Decrypter #%d]:\tStopped generating keys after %llu iterations because password changed to: ", client_id, iteration);
-            printPWDetails(encrypted_pw_p);
-            //printf("[Decrypter #%d]:\tStopped generating keys after %llu iterations because password changed.\n", client_id, iteration);
-            readMessage(mq_to_read_from, incoming_msg_p);
             out_plain_pw_guess_p->pw_id = encrypted_pw_p->pw_id;
             iteration = 0;
         }
-        else
-        {
-            ASSERT(encrypted_pw_p->pw_data_len != 0, "Cannot have zero-length encrypted password!");
-            MTA_get_rand_data(generated_key.key, generated_key.key_len);
-            ASSERT((generated_key.key_len) > 0, "Cannot have a zero-length key.");
-            
-            if (MTA_CRYPT_RET_OK != MTA_decrypt(generated_key.key, generated_key.key_len, encrypted_pw_p->pw_data, encrypted_pw_p->pw_data_len, out_plain_pw_guess_p->pw_data, &out_plain_pw_guess_p->pw_data_len))
-            {   
-                printf("[Decrypter #%d]:\tAn error occurred with MTA_decrypt() \n", client_id);
-            }
+        
+        ASSERT(encrypted_pw_p->pw_data_len != 0, "Cannot have zero-length encrypted password!");
+        MTA_get_rand_data(generated_key.key, generated_key.key_len);
+        ASSERT((generated_key.key_len) > 0, "Cannot have a zero-length key.");
+        
+        if (MTA_CRYPT_RET_OK != MTA_decrypt(generated_key.key, generated_key.key_len, encrypted_pw_p->pw_data, encrypted_pw_p->pw_data_len, out_plain_pw_guess_p->pw_data, &out_plain_pw_guess_p->pw_data_len))
+        {   
+            printf("[Decrypter #%d]:\tAn error occurred with MTA_decrypt() \n", client_id);
         }
         
     } while (!isPrintable(out_plain_pw_guess_p->pw_data, out_plain_pw_guess_p->pw_data_len));
@@ -171,7 +143,7 @@ void generatePWGuess(int client_id, mqd_t mq_to_read_from, Msg *incoming_msg_p, 
     
 }
 
-void sendPWGuess(mqd_t server_mq, int client_id, PW* plain_pw_guess_p)
+bool sendPWGuess(mqd_t server_mq, int client_id, PW* plain_pw_guess_p)
 {
     printf("[Decrypter #%d]:\tSending server plain pw guess %s with id=%d\n", client_id, plain_pw_guess_p->pw_data, plain_pw_guess_p->pw_id);
     // printf("[Decrypter #%d]:\t\tSending server following pw guess: ", client_id);
@@ -183,22 +155,20 @@ void sendPWGuess(mqd_t server_mq, int client_id, PW* plain_pw_guess_p)
     DecrypterMsg* decrypterMsg = (DecrypterMsg*)(msg_p->data);
     decrypterMsg->client_id = client_id;
     decrypterMsg->decrypted_pw_guess = *plain_pw_guess_p;
-    sendMsg(server_mq, msg_p, MQ_MAX_MSG_SIZE, 0);    
+    
+    return tryToSendMsg(server_mq, msg_p, MQ_MAX_MSG_SIZE, 0);    
 }
 
-//TODO: Change all mqd_t* arguments to by value (if not output)
-void sendDisconnectReq(mqd_t server_mq, char* client_mq_name, int client_id)
+void sendConnectReq(mqd_t server_mq, int client_id, char* client_mq_name, bool disconnect)
 {
-    mq_unlink(client_mq_name);
-    
+    printf("[Decrypter #%d]:\tSending %s request to server.\n", client_id, disconnect ? "disconnection" : "connection");
     uint8_t buffer[sizeof(Msg) + sizeof(ConnectReq)] = {0};
     Msg* msg_p = (Msg*)buffer;
-    msg_p->msg_type = DISCONNECT_REQUEST;
-    DisconnectReq* disconnect_req_msg = (DisconnectReq*)(msg_p->data);
-    disconnect_req_msg->client_id = client_id;
+    msg_p->msg_type = disconnect ? DISCONNECT_REQUEST : CONNECT_REQUEST;
+    ConnectReq* connect_request_msg = (ConnectReq*)(msg_p->data);
+    connect_request_msg->client_id = client_id;
+    strcpy(connect_request_msg->mq_name, client_mq_name);
     sendMsg(server_mq, msg_p, MQ_MAX_MSG_SIZE, 10);
-
-    mq_close(server_mq);
 }
 
 int main(int argc, char* argv[])
@@ -221,10 +191,11 @@ int main(int argc, char* argv[])
     struct mq_attr attr_client, attr_server;
     setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_client);
     setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_server);
+    mq_unlink(client_mq_name);
     mqd_t decrypter_mq = openReadOnlyMQ(client_mq_name, &attr_client);
     mqd_t server_mq = openWriteOnlyMQ(MQ_SERVER_NAME, &attr_server);
-
-    sendConnectReq(server_mq, client_id, client_mq_name);
+    
+    sendConnectReq(server_mq, client_id, client_mq_name, CONNECT);
     
     
     readMessage(decrypter_mq, incoming_msg_p);
@@ -237,7 +208,13 @@ int main(int argc, char* argv[])
     {
         //try to decrypt local encrypted_pw to printable pw
         generatePWGuess(client_id, decrypter_mq, incoming_msg_p, &plain_pw_guess);
-        sendPWGuess(server_mq, client_id, &plain_pw_guess);
+        while (!sendPWGuess(server_mq, client_id, &plain_pw_guess))
+        {
+            if (updateEncryptedPW(decrypter_mq, incoming_msg_p))
+            {
+                continue;
+            }
+        }
 
         if (-1 != num_of_rounds)
         {
@@ -245,7 +222,10 @@ int main(int argc, char* argv[])
             --num_of_rounds;
             if (0 == num_of_rounds)
             {
-                sendDisconnectReq(server_mq, client_mq_name, client_id);
+                sendConnectReq(server_mq, client_id, client_mq_name, DISCONNECT);
+                mq_close(decrypter_mq);
+                mq_close(server_mq);
+                printf("[Decrypter #%d]:\tGoodbye!\n", client_id);
                 exit(0);
             }
         }

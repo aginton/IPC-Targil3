@@ -156,11 +156,26 @@ void handleConnectRequest(ConnectReq* connect_req_p, PW* encrypted_pw_p, bool co
 void handleDisconnectRequest(DisconnectReq* disconnect_req_p, bool connected_clients[], mqd_t client_mqs[])
 {
     ASSERT(NULL != disconnect_req_p, "Error: disconnect_req_p is NULL in handleDisconnectRequest");
-    ASSERT(disconnect_req_p->client_id > -1 && disconnect_req_p->client_id < MAX_NUMBER_CONNECTIONS, 
+    ASSERT(disconnect_req_p->client_id < MAX_NUMBER_CONNECTIONS, 
         "Error: client_id is out of bounds in handleDisconnectRequest");
-
-    mq_close(client_mqs[disconnect_req_p->client_id]);
-    connected_clients[disconnect_req_p->client_id] = false;
+    
+    int client_id = disconnect_req_p->client_id;
+    if(client_id >= 0 && client_id < MAX_NUMBER_CONNECTIONS)
+    {
+        if (connected_clients[client_id])
+        {
+            mq_close(client_mqs[client_id]);
+            mq_unlink(disconnect_req_p->mq_name);
+            connected_clients[client_id] = false;
+            printf("[SERVER]:\tReceived Disconnect Request from client %d.\n", client_id);
+            return;
+        }
+        printf("[SERVER]:\tERROR: client must be connected before disconnecting.\n");
+    }
+    else
+    {
+        printf("[SERVER]:\tERROR: client id must be in the range [0-%d]\n", MAX_NUMBER_CONNECTIONS);
+    }
 }
 
 void handlePWGuess(DecrypterMsg* decrypter_msg_p, ServerPW* server_pw_p, bool connected_clients[], mqd_t client_mqs[])
@@ -229,9 +244,12 @@ void handleMsg(ServerPW* server_pw_p, mqd_t server_mq, bool connected_clients[],
     uint8_t buffer[MQ_MAX_MSG_SIZE] = {0};
     Msg* msg_p = (Msg*)buffer;
 
+    printf("[SERVER]\tReading message\n");
     readMessage(server_mq, msg_p);
 
     MSG_TYPE_E msg_type = msg_p->msg_type;
+    
+    printf("[SERVER]\tReceived message of type %d.\n", (int)msg_type);
 
     switch (msg_type)
     {
@@ -279,6 +297,7 @@ int main()
     setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
     //printf("[%s process %d]\t\tmain() - going to try and open mq_server.\n", server_src, getpid());
 
+    mq_unlink(MQ_SERVER_NAME);
     mqd_t server_mq = openReadOnlyMQ(MQ_SERVER_NAME, &attr);
     
     ServerPW server_pw = {0};

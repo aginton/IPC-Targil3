@@ -5,12 +5,13 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
-
+#include <time.h>
 #include "utils.h"
 
 #include "mta_crypt.h"
 #include "mta_rand.h"
 
+#define MSG_SEND_TIMEOUT_S 1
 
 Msg* allocMsgStruct(unsigned int msg_size)
 {
@@ -118,8 +119,31 @@ SEND_MSG_RC sendMsg(mqd_t mqd, Msg* mg_p, size_t msg_size, unsigned int prio)
             printf("Error trying to send message (errno=%d).\n", errno);
             return UNKNOWN_ERR;
         }
+
+        printf("send returned EAGAIN\n");
     }
+
+    printf("send success\n");
     return SEND_MSG_SUCC;
+}
+
+bool tryToSendMsg(mqd_t mqd, Msg* mg_p, size_t msg_size, unsigned int prio)
+{
+    struct timespec timeout;        /* timeout value for the wait function */
+    clock_gettime(CLOCK_MONOTONIC, &timeout);
+    timeout.tv_sec += MSG_SEND_TIMEOUT_S;
+
+    if (0 != mq_timedsend (mqd, (const char *)mg_p, msg_size, prio, &timeout))
+    {
+        if (errno != ETIMEDOUT) 
+        { 
+            printf("Message wasn't sent due to time out\n");
+        }
+
+        return false;
+    }
+
+    return true;
 }
 
 void setMQAttrbs(long flags, long max_num_messages, long max_msg_size, long cur_num_msgs, struct mq_attr* out_attr_p)
@@ -145,8 +169,9 @@ long getNumOfMsgs(mqd_t* mqd_p)
 
 mqd_t openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
 {
+    
     int mqd = mq_open(mq_name, O_CREAT | O_WRONLY , QUEUE_PERMISSIONS, attr_p);
-    mq_unlink(mq_name);
+    //mq_unlink(mq_name);
 
     if (-1 == mqd)
     {
@@ -209,4 +234,31 @@ void debugMTADecrypt(PW* encrypted_pw_p, Key* key_p)
     MTA_decrypt(key_p->key, key_p->key_len, encrypted_pw_p->pw_data, encrypted_pw_p->pw_data_len, plain_pw.pw_data, &plain_pw.pw_data_len);
     printf("debugMTADecrypt():\n");
     printPWsAndKey(encrypted_pw_p, &plain_pw, key_p);
+}
+
+bool parseRoundsToLive(int argc, char* argv[], int* out_rounds_to_live)
+{
+    ASSERT(NULL != out_rounds_to_live, "out_rounds_to_live is NULL in parseRoundsToLive");
+
+    if (argc < 3)
+    {
+        *out_rounds_to_live = -1;
+        return true;
+    }
+
+    if ((0 != strcmp(argv[2], "-n")) || argc < 4)
+    {   
+        printf("Error: Arguments must be in the format <id> [-n <number of rounds>]\n");
+        return false;
+    }
+
+    unsigned int number_of_rounds = atoi(argv[3]);
+    if (0 == number_of_rounds)
+    {
+        printf("Error: number of rounds must be a positive integer.\n");
+        return false;
+    }
+    
+    *out_rounds_to_live = number_of_rounds;
+    return true;
 }

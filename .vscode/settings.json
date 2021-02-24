@@ -51,6 +51,7 @@
         "cstdbool": "cpp",
         "typeinfo": "cpp",
         "datastructs.h": "c",
-        "mta_crypt.h": "c"
+        "mta_crypt.h": "c",
+        "mqueue.h": "c"
     }
 }

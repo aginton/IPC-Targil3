@@ -6,7 +6,6 @@
 #include <stdbool.h>
 #include <mqueue.h>
 
-
 #define MAX_NUMBER_CONNECTIONS 100
 #define MQ_MAX_MSGS         1
 #define MQ_MAX_MSG_SIZE     100 		//Some big value(in bytes)
@@ -23,7 +22,6 @@
 #define RELATIVE_PATH_TO_PROGRAMS "./"   //assuming programs all in same directory for now
 
 #define QUEUE_PERMISSIONS S_IRWXU | S_IRWXG   // TODO: Consider narrowing restrictions
-
 
 #define ASSERT(expr, desc)                                                                \
     do                                                                                    \
@@ -70,9 +68,7 @@ typedef struct connectReq{
     char mq_name[MAX_MQ_NAME_LEN + 1];
 } ConnectReq;
 
-typedef struct disconnectReq{
-    unsigned int client_id;
-} DisconnectReq;
+typedef ConnectReq DisconnectReq;
 
 typedef struct decrypterMsg{
     unsigned int client_id;
