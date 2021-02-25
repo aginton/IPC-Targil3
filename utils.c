@@ -11,7 +11,7 @@
 #include "mta_crypt.h"
 #include "mta_rand.h"
 
-#define MSG_SEND_TIMEOUT_S 1
+#define MSG_SEND_TIMEOUT_S (1)
 
 Msg* allocMsgStruct(unsigned int msg_size)
 {
@@ -162,16 +162,9 @@ long getNumOfMsgs(mqd_t* mqd_p)
     return mqAttr.mq_curmsgs;
 }
 
-// void printNumOfMsgsAtMQ(mqd_t* mqd_p, char* mq_name)
-// {
-//     printf("Currently there are %ld messages at mq %s\n", getNumOfMsgs(mqd_p), mq_name);
-// }
-
 mqd_t openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
 {
-    
     int mqd = mq_open(mq_name, O_CREAT | O_WRONLY , QUEUE_PERMISSIONS, attr_p);
-    //mq_unlink(mq_name);
 
     if (-1 == mqd)
     {

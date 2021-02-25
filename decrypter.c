@@ -23,7 +23,7 @@ bool parseProgramParams(int argc, char* argv[], int* out_client_id, char out_mq_
 //TODO: Change client_id (and other arguments) to global
 bool parseProgramParams(int argc, char* argv[], int* out_client_id, char out_mq_name[], int* out_num_of_rounds_p)
 {
-    printf("[Decrypter process %d]\tEntered parseProgramParams, given %d arguments: { ", getpid(), argc);
+    printf("[Decrypter %d]\tEntered parseProgramParams, given %d arguments: { ", getpid(), argc);
     for (int i = 0; i < argc - 1; ++i)
     {
         printf("%s, ", argv[i]);
@@ -189,8 +189,8 @@ int main(int argc, char* argv[])
     memset(&plain_pw_guess, 0, sizeof(PW));
     //TODO: Place everything up to and including send connection request into separate function
     struct mq_attr attr_client, attr_server;
-    setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_client);
-    setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_server);
+    setMQAttrbs(0, DECRYPTER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_client);
+    setMQAttrbs(0, SERVER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_server);
     mq_unlink(client_mq_name);
     mqd_t decrypter_mq = openReadOnlyMQ(client_mq_name, &attr_client);
     mqd_t server_mq = openWriteOnlyMQ(MQ_SERVER_NAME, &attr_server);

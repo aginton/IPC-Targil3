@@ -143,7 +143,7 @@ void handleConnectRequest(ConnectReq* connect_req_p, PW* encrypted_pw_p, bool co
 
     connected_clients[client_id] = true;
     struct mq_attr attr;
-    setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
+    setMQAttrbs(0, DECRYPTER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
     client_mqs[client_id] = openWriteOnlyMQ(connect_req_p->mq_name, &attr);
     printf("[SERVER]:\tAdded client #%d\n", connect_req_p->client_id);
     
@@ -294,7 +294,7 @@ void initServerPW(ServerPW* server_pw_p)
 int main()
 {
     struct mq_attr attr;
-    setMQAttrbs(0, MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
+    setMQAttrbs(0, SERVER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
     //printf("[%s process %d]\t\tmain() - going to try and open mq_server.\n", server_src, getpid());
 
     mq_unlink(MQ_SERVER_NAME);

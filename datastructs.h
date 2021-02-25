@@ -7,7 +7,8 @@
 #include <mqueue.h>
 
 #define MAX_NUMBER_CONNECTIONS 100
-#define MQ_MAX_MSGS         1
+#define SERVER_MQ_MAX_MSGS  1
+#define DECRYPTER_MQ_MAX_MSGS  10
 #define MQ_MAX_MSG_SIZE     100 		//Some big value(in bytes)
 #define MQ_SERVER_NAME             "/server_mq"
 #define DECRYPTER_MQ_BASE_NAME "/decrypter_mq_"
@@ -33,10 +34,8 @@
         }                                                                                 \
     } while (false)
 
-
-
 // https://github.com/gavrielk/LinuxCourseCodePub/tree/master/ipc
-
+//stam
 typedef enum {
     CONNECT_REQUEST ,
     DISCONNECT_REQUEST,
