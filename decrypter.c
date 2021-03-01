@@ -14,32 +14,6 @@
 #define DISCONNECT (true)
 #define CONNECT (false)
 
-bool parseMQName(int argc, char* argv[], int* out_client_id, char out_mq_name[]);
-
-bool parseProgramParams(int argc, char* argv[], int* out_client_id, char out_mq_name[], int* out_num_of_rounds_p);
-
-
-
-//TODO: Change client_id (and other arguments) to global
-bool parseProgramParams(int argc, char* argv[], int* out_client_id, char out_mq_name[], int* out_num_of_rounds_p)
-{
-    printf("[Decrypter %d]\tEntered parseProgramParams, given %d arguments: { ", getpid(), argc);
-    for (int i = 0; i < argc - 1; ++i)
-    {
-        printf("%s, ", argv[i]);
-    }
-    printf("%s }\n", argv[argc-1]);
-
-    if (argc < 2)    
-    {
-        printf("Error: invalid number of program arguments.\n");
-        return false;
-    }
-
-    bool has_valid_id_arg = parseMQName(argc, argv, out_client_id, out_mq_name);   
-    bool has_valid_num_of_rounds = parseRoundsToLive(argc, argv, out_num_of_rounds_p);
-    return has_valid_id_arg && has_valid_num_of_rounds;
-}
 
 
 bool parseMQName(int argc, char* argv[], int* out_client_id, char out_mq_name[])
@@ -70,15 +44,23 @@ bool parseMQName(int argc, char* argv[], int* out_client_id, char out_mq_name[])
     return true;
 }
 
+bool parseProgramParams(int argc, char* argv[], int* out_client_id, char out_mq_name[], int* out_num_of_rounds_p)
+{
+    if (argc < 2)    
+    {
+        printf("Error: invalid number of program arguments.\n");
+        return false;
+    }
+
+    bool has_valid_id_arg = parseMQName(argc, argv, out_client_id, out_mq_name);   
+    bool has_valid_num_of_rounds = parseRoundsToLive(argc, argv, out_num_of_rounds_p);
+    return has_valid_id_arg && has_valid_num_of_rounds;
+}
+
 bool updateEncryptedPW(mqd_t mq_to_read_from, Msg* incoming_msg_p)
 {
     if (doesMQHaveMessages(mq_to_read_from))
     {
-        // DEBUG:
-        PW* encrypted_pw_p = &((EncrypterMsg*)(&incoming_msg_p->data))->encrypted_pw;
-        printPWDetails(encrypted_pw_p);
-        //
-
         readMessage(mq_to_read_from, incoming_msg_p);
         return true;
     }
@@ -88,38 +70,27 @@ bool updateEncryptedPW(mqd_t mq_to_read_from, Msg* incoming_msg_p)
 
 void generatePWGuess(int client_id, mqd_t mq_to_read_from, Msg* incoming_msg_p, PW* out_plain_pw_guess_p)
 {
-    //readMessage(mq_to_read_from, incoming_msg_p);
-    //printf("[Decrypter #%d]:\t\tTrying to generate printable pw guess.\n", client_id);
     unsigned long long iteration = 0;
     Key generated_key = {0};
     memset(&generated_key, 0, sizeof(Key));
     generated_key.key_len = KEY_LEN;
     PW* encrypted_pw_p = &((EncrypterMsg*)(&incoming_msg_p->data))->encrypted_pw;
     out_plain_pw_guess_p->pw_id = encrypted_pw_p->pw_id;
-    printf("\n[Decrypter #%d]:\tEntered generatePWGuess with following encrypted pw: ", client_id);
-    printPWDetails(encrypted_pw_p);
+    printf("\n[Decrypter #%d]:\tTrying to generate printable password for encrypted password # %d.\n", client_id, encrypted_pw_p->pw_id);
     
     do
     {
         iteration++;
 
-        if (0 == (iteration % 10000))
-        {
-            printf("[Decrypter #%d]:\tdone %llu iterations already.\n", client_id, iteration);
-
-            // //DEBUG
-            
-            // printf("[Decrypter #%d]:\t\tGenerated following key: ", client_id);
-            // printKeyDetails(&generated_key);
-            // printf("[Decrypter #%d]:\t\tGenerated following decrypted password guess: ", client_id);
-            // printPWDetails(out_plain_pw_guess_p);
-            // printf("\n");
-        }
+        // if (0 == (iteration % 10000))
+        // {
+        //     printf("[Decrypter #%d]:\tdone %llu iterations already.\n", client_id, iteration);
+        // }
 
         // Check if encrypted password changed while generating a printable guess: 
         if (updateEncryptedPW(mq_to_read_from, incoming_msg_p))
         {
-            printf("[Decrypter #%d]:\tStopped generating keys after %llu iterations because password changed to: ", client_id, iteration);
+            printf("[Decrypter #%d]:\tStopped generating keys for password # %d after %llu iterations because received encrypted pasword # %d\n", client_id, out_plain_pw_guess_p->pw_id, iteration, encrypted_pw_p->pw_id);
             out_plain_pw_guess_p->pw_id = encrypted_pw_p->pw_id;
             iteration = 0;
         }
@@ -135,20 +106,12 @@ void generatePWGuess(int client_id, mqd_t mq_to_read_from, Msg* incoming_msg_p, 
         
     } while (!isPrintable(out_plain_pw_guess_p->pw_data, out_plain_pw_guess_p->pw_data_len));
 
-    //DEBUG
-    // printf("\n------------------------------------------------------------------------------------------------------------\n");
-    // printf("[Decrypter #%d]:\t\tAfter %llu iterations, found has following pws and key:\n", client_id, iteration);
-    // printPWsAndKey(encrypted_pw_p, out_plain_pw_guess_p, &generated_key);
-    // printf("------------------------------------------------------------------------------------------------------------\n\n");
-    
+    printf("[Decrypter #%d]:\tAfter %llu iterations, found printable guess %s for encrypted password #%d.\n", client_id, iteration, out_plain_pw_guess_p->pw_data, out_plain_pw_guess_p->pw_id);
 }
 
 bool sendPWGuess(mqd_t server_mq, int client_id, PW* plain_pw_guess_p)
 {
     printf("[Decrypter #%d]:\tSending server plain pw guess %s with id=%d\n", client_id, plain_pw_guess_p->pw_data, plain_pw_guess_p->pw_id);
-    // printf("[Decrypter #%d]:\t\tSending server following pw guess: ", client_id);
-    // printPWDetails(plain_pw_guess_p);
-    // printf("\n");
     uint8_t buffer[sizeof(Msg) + sizeof(DecrypterMsg)] = {0};
     Msg* msg_p = (Msg*)buffer;
     msg_p->msg_type = DECRYPTER_PW_GUESS;
@@ -171,6 +134,15 @@ void sendConnectReq(mqd_t server_mq, int client_id, char* client_mq_name, bool d
     sendMsg(server_mq, msg_p, MQ_MAX_MSG_SIZE, 10);
 }
 
+void initMQs(char* client_mq_name, int client_id, mqd_t* out_decrypter_mqd, mqd_t* out_server_mqd){
+    struct mq_attr attr_client, attr_server;
+    setMQAttrbs(0, DECRYPTER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_client);
+    setMQAttrbs(0, SERVER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_server);
+    mq_unlink(client_mq_name);
+    *out_decrypter_mqd = openReadOnlyMQ(client_mq_name, &attr_client);
+    *out_server_mqd = openWriteOnlyMQ(MQ_SERVER_NAME, &attr_server);
+}
+
 int main(int argc, char* argv[])
 {   
     int num_of_rounds = -1;
@@ -187,22 +159,13 @@ int main(int argc, char* argv[])
 
     PW plain_pw_guess;
     memset(&plain_pw_guess, 0, sizeof(PW));
-    //TODO: Place everything up to and including send connection request into separate function
-    struct mq_attr attr_client, attr_server;
-    setMQAttrbs(0, DECRYPTER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_client);
-    setMQAttrbs(0, SERVER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr_server);
-    mq_unlink(client_mq_name);
-    mqd_t decrypter_mq = openReadOnlyMQ(client_mq_name, &attr_client);
-    mqd_t server_mq = openWriteOnlyMQ(MQ_SERVER_NAME, &attr_server);
+    
+    mqd_t server_mq, decrypter_mq;
+    initMQs(client_mq_name, client_id, &decrypter_mq, &server_mq);
     
     sendConnectReq(server_mq, client_id, client_mq_name, CONNECT);
     
-    
     readMessage(decrypter_mq, incoming_msg_p);
-    
-    PW* encrypted_pw_p = &((EncrypterMsg*)(&incoming_msg_p->data))->encrypted_pw;
-    printf("\n[Decrypter #%d]:\tReceived following encrypted password: ", client_id);
-    printPWDetails(encrypted_pw_p);
     
     while (true)
     {

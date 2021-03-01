@@ -13,18 +13,6 @@
 
 #define MSG_SEND_TIMEOUT_S (1)
 
-Msg* allocMsgStruct(unsigned int msg_size)
-{
-    Msg* msg = malloc(msg_size);
-    ASSERT(msg != NULL, "inside allocMsgStruct - malloc(msg_size) returned NULL.");
-    return msg;
-}
-
-void setMsgType(Msg* out_msg_p, MSG_TYPE_E msg_type)
-{
-    out_msg_p->msg_type = msg_type;
-}
-
 
 
 bool doesMQHaveMessages(mqd_t mqd)
@@ -70,15 +58,6 @@ char getPrintableChar()
 
 bool isPrintable(char *str, unsigned int str_len)
 {
-    //DEBUG
-    // printf("isPrintable called with str_len=%u, and str <", str_len);
-    // for (int i = 0; i < str_len; ++i)
-    // {
-    //     printf("%d ", str[i]);
-    // }
-    // printf(">\n");
-
-
     for (int i = 0; i < str_len; ++i)
     {
         if (!isprint(str[i]))
@@ -88,15 +67,6 @@ bool isPrintable(char *str, unsigned int str_len)
     }
     return true;
 }
-
-// Msg* createMsg(MSG_TYPE_E type, void* src_data_ptr, size_t bytes_of_data_to_copy)
-// {
-//     Msg* msg_p = malloc(sizeof(Msg) + bytes_of_data_to_copy);
-//     ASSERT(msg_p != NULL, "inside createMsg(), malloc(sizeof(Msg) + bytes_of_data_to_copy returned NULL.");
-//     setMsgType(msg_p, type);
-//     memcpy(msg_p->data, src_data_ptr, bytes_of_data_to_copy);
-//     return msg_p;
-// }
 
 
 bool isPWsMatch(PW* pw1_p, PW* pw2_p)
@@ -115,7 +85,6 @@ SEND_MSG_RC sendMsg(mqd_t mqd, Msg* mg_p, size_t msg_size, unsigned int prio)
         // The call failed.  Make sure errno is EAGAIN
         if (errno != EAGAIN) 
         { 
-            //perror ("mq_receive()");
             printf("Error trying to send message (errno=%d).\n", errno);
             return UNKNOWN_ERR;
         }
@@ -123,7 +92,6 @@ SEND_MSG_RC sendMsg(mqd_t mqd, Msg* mg_p, size_t msg_size, unsigned int prio)
         printf("send returned EAGAIN\n");
     }
 
-    printf("send success\n");
     return SEND_MSG_SUCC;
 }
 
@@ -169,7 +137,6 @@ mqd_t openWriteOnlyMQ(char* mq_name, struct mq_attr* attr_p)
     if (-1 == mqd)
     {
         perror ("openWriteOnlyMQ: mq_open ");
-        // exit (1);
     }
     return mqd; 
 }
@@ -186,48 +153,8 @@ mqd_t openReadOnlyMQ(char* mq_name, struct mq_attr* attr_p)
     return mqd;
 }
 
-void printPWDetails(PW* encrypted_pw_p)
-{
-    printf("{id=%u, len=%u, bytes=<", encrypted_pw_p->pw_id, encrypted_pw_p->pw_data_len);
-    for (int i = 0; i < encrypted_pw_p->pw_data_len; ++i)
-    {
-        printf("%d ", encrypted_pw_p->pw_data[i]);
-    }
-    printf(">}\n");
-}
 
-void printKeyDetails(Key* key_p)
-{
-    printf("{key_len=%d, data=<", key_p->key_len);
-    for (int i = 0; i < 8; ++i)
-    {
-        printf("%d ", key_p->key[i]);
-    }
-    printf(">}\n");
-}
 
-void printPWsAndKey(PW* encrypted_pw_p, PW* plain_pw_p, Key* key_p)
-{
-    
-    printf("Plain PW: ");
-    printPWDetails(plain_pw_p);
-    
-    printf("Key: ");
-    printKeyDetails(key_p);
-    
-    printf("Encrypted PW: ");
-    printPWDetails(encrypted_pw_p);
-
-    
-}
-
-void debugMTADecrypt(PW* encrypted_pw_p, Key* key_p)
-{
-    PW plain_pw = {0};
-    MTA_decrypt(key_p->key, key_p->key_len, encrypted_pw_p->pw_data, encrypted_pw_p->pw_data_len, plain_pw.pw_data, &plain_pw.pw_data_len);
-    printf("debugMTADecrypt():\n");
-    printPWsAndKey(encrypted_pw_p, &plain_pw, key_p);
-}
 
 bool parseRoundsToLive(int argc, char* argv[], int* out_rounds_to_live)
 {

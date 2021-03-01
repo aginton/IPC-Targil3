@@ -14,7 +14,7 @@
 #define DECRYPTER_MQ_BASE_NAME "/decrypter_mq_"
 #define MAX_MQ_NAME_LEN 24
 #define MAX_PW_LEN 64
-#define PLAIN_PW_LEN 8
+#define PLAIN_PW_LEN 16
 #define KEY_LEN (PLAIN_PW_LEN / 8)
 
 
@@ -22,7 +22,7 @@
 #define SERVER_PROGRAM_NAME "server"
 #define RELATIVE_PATH_TO_PROGRAMS "./"   //assuming programs all in same directory for now
 
-#define QUEUE_PERMISSIONS S_IRWXU | S_IRWXG   // TODO: Consider narrowing restrictions
+#define QUEUE_PERMISSIONS S_IRWXU | S_IRWXG   
 
 #define ASSERT(expr, desc)                                                                \
     do                                                                                    \
@@ -34,8 +34,7 @@
         }                                                                                 \
     } while (false)
 
-// https://github.com/gavrielk/LinuxCourseCodePub/tree/master/ipc
-//stam
+
 typedef enum {
     CONNECT_REQUEST ,
     DISCONNECT_REQUEST,

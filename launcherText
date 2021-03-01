@@ -1,0 +1,1386 @@
+
+[SERVER]	Created plain pw (Z"#?K~*ENjMFb`$ with len=16 and id= 1
+[SERVER]	Reading message
+[SERVER]	Received message of type 0.
+[SERVER]:	Received connection request from client #0
+[SERVER]:	Added client #0
+[SERVER]:	Sending encrypted pw #1 to client #0.
+[SERVER]	Reading message
+[SERVER]	Received message of type 0.
+[SERVER]:	Received connection request from client #1
+[SERVER]:	Added client #1
+[SERVER]:	Sending encrypted pw #1 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess (Z"#?K~*ENjMFb`$ with id=1 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password (Z"#?K~*ENjMFb`$!
+
+[SERVER]	Created plain pw ~t_t=&*d2\&+rkU! with len=16 and id= 2
+[SERVER]:	Sending encrypted pw #2 to client #0.
+[SERVER]:	Sending encrypted pw #2 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ~t_t=&*d2\&+rkU! with id=2 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password ~t_t=&*d2\&+rkU!!
+
+[SERVER]	Created plain pw 2/G3kY7`;('do{YU with len=16 and id= 3
+[SERVER]:	Sending encrypted pw #3 to client #0.
+[SERVER]:	Sending encrypted pw #3 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 2/G3kY7`;('do{YU with id=3 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password 2/G3kY7`;('do{YU!
+
+[SERVER]	Created plain pw 1^6}K{IdP;c}&Kui with len=16 and id= 4
+[SERVER]:	Sending encrypted pw #4 to client #0.
+[SERVER]:	Sending encrypted pw #4 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 1^6}K{IdP;c}&Kui with id=4 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password 1^6}K{IdP;c}&Kui!
+
+[SERVER]	Created plain pw ^\$'dG(07".rPa?B with len=16 and id= 5
+[SERVER]:	Sending encrypted pw #5 to client #0.
+[SERVER]:	Sending encrypted pw #5 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ^\$'dG(07".rPa?B with id=5 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password ^\$'dG(07".rPa?B!
+
+[SERVER]	Created plain pw L{V]8ba[_X`>?F 4 with len=16 and id= 6
+[SERVER]:	Sending encrypted pw #6 to client #0.
+[SERVER]:	Sending encrypted pw #6 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess L{V]8ba[_X`>?F 4 with id=6 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password L{V]8ba[_X`>?F 4!
+
+[SERVER]	Created plain pw 'A#;\U#0?rZ^euS> with len=16 and id= 7
+[SERVER]:	Sending encrypted pw #7 to client #0.
+[SERVER]:	Sending encrypted pw #7 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 'A#;\U#0?rZ^euS> with id=7 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password 'A#;\U#0?rZ^euS>!
+
+[SERVER]	Created plain pw vtOUDH;#z&*skBat with len=16 and id= 8
+[SERVER]:	Sending encrypted pw #8 to client #0.
+[SERVER]:	Sending encrypted pw #8 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess vtOUDH;#z&*skBat with id=8 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password vtOUDH;#z&*skBat!
+
+[SERVER]	Created plain pw wa<D9`UT2!"jH'P' with len=16 and id= 9
+[SERVER]:	Sending encrypted pw #9 to client #0.
+[SERVER]:	Sending encrypted pw #9 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess wa<D9`UT2!"jH'P' with id=9 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password wa<D9`UT2!"jH'P'!
+
+[SERVER]	Created plain pw 6V6mbY< KKG&))O` with len=16 and id= 10
+[SERVER]:	Sending encrypted pw #10 to client #0.
+[SERVER]:	Sending encrypted pw #10 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 6V6mbY< KKG&))O` with id=10 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password 6V6mbY< KKG&))O`!
+
+[SERVER]	Created plain pw L$!HvSy`>Q3N/]~\ with len=16 and [Decrypter 6997]	Entered parseProgramParams, given 4 arguments: { decrypter, 0, -n, -1 }
+[Decrypter #0]:	Sending connection request to server.
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 1.
+[Decrypter #0]:	Stopped generating keys for password # 1 after 19711 iterations because received encrypted pasword # 2
+[Decrypter #0]:	After 17639 iterations, found printable guess ~t_t=&*d2\&+rkU! for encrypted password #2.
+[Decrypter #0]:	Sending server plain pw guess ~t_t=&*d2\&+rkU! with id=2
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 2.
+[Decrypter #0]:	Stopped generating keys for password # 2 after 1 iterations because received encrypted pasword # 3
+[Decrypter #0]:	Stopped generating keys for password # 3 after 9292 iterations because received encrypted pasword # 4
+[Decrypter #0]:	After 33628 iterations, found printable guess 1^6}K{IdP;c}&Kui for encrypted password #4.
+[Decrypter #0]:	Sending server plain pw guess 1^6}K{IdP;c}&Kui with id=4
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 4.
+[Decrypter #0]:	Stopped generating keys for password # 4 after 1 iterations because received encrypted pasword # 5
+[Decrypter #0]:	After 25842 iterations, found printable guess ^\$'dG(07".rPa?B for encrypted password #5.
+[Decrypter #0]:	Sending server plain pw guess ^\$'dG(07".rPa?B with id=5
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 5.
+[Decrypter #0]:	Stopped generating keys for password # 5 after 1 iterations because received encrypted pasword # 6
+[Decrypter #0]:	After 18551 iterations, found printable guess L{V]8ba[_X`>?F 4 for encrypted password #6.
+[Decrypter #0]:	Sending server plain pw guess L{V]8ba[_X`>?F 4 with id=6
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 6.
+[Decrypter #0]:	Stopped generating keys for password # 6 after 1 iterations because received encrypted pasword # 7
+[Decrypter #0]:	Stopped generating keys for password # 7 after 15979 iterations because received encrypted pasword # 8
+[Decrypter #0]:	Stopped generating keys for password # 8 after 39887 iterations because received encrypted pasword # 9
+[Decrypter #0]:	After 7440 iterations, found printable guess wa<D9`UT2!"jH'P' for encrypted password #9.
+[Decrypter #0]:	Sending server plain pw guess wa<D9`UT2!"jH'P' with id=9
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 9.
+[Decrypter #0]:	Stopped generating keys for password # 9 after 1 iterations because received encrypted pasword # 10
+[Decrypter #0]:	After 42807 iterations, found printable guess 6V6mbY< KKG&))O` for encrypted password #10.
+[Decrypter #0]:	Sending server plain pw guess 6V6mbY< KKG&))O` with id=10
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 10.
+[Decrypter #0]:	Stopped generating keys for password # 10 after 1 iterations because received encrypted pasword # 11
+[Decrypter #0]:	After 1297 iterations, found printable guess L$!HvSy`>Q3N/]~\ for encrypted password #11.
+[Decrypter #0]:	Sending server plain pw guess L$!HvSy`>Q3N/]~\ with id=11
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 11.
+[Decrypter #0]:	Stopped generating keys for password # 11 after 1 iterations because received encrypted pasword # 12
+[Decrypter #0]:	After 241 iterations, found printable guess a8s[92TP7# a$CCw for encrypted password #12.
+[Decrypter #0]:	Sending server plain pw guess a8s[92TP7# a$CCw with id=12
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 12.
+[Decrypter #0]:	Stopped generating keys for password # 12 after 1 iterations because received encrypted pasword # 13
+[Decrypter #0]:	Stopped generating keys for password # 13 after 76466 iterations because received encrypted pasword # 14
+[Decrypter #0]:	Stopped generating keys for password # 14 after 2637 iterations because received encrypted pasword # 15
+[Decrypter #0]:	After 6279 iterations, found printable guess 9UYYxcWLE#iG8!%W for encrypted password #15.
+[Decrypter #0]:	Send[Decrypter 6998]	Entered parseProgramParams, given 4 arguments: { decrypter, 1, -n, -1 }
+[Decrypter #1]:	Sending connection request to server.
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 1.
+[Decrypter #1]:	After 18673 iterations, found printable guess (Z"#?K~*ENjMFb`$ for encrypted password #1.
+[Decrypter #1]:	Sending server plain pw guess (Z"#?K~*ENjMFb`$ with id=1
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 1.
+[Decrypter #1]:	Stopped generating keys for password # 1 after 1 iterations because received encrypted pasword # 2
+[Decrypter #1]:	Stopped generating keys for password # 2 after 17002 iterations because received encrypted pasword # 3
+[Decrypter #1]:	After 8554 iterations, found printable guess 2/G3kY7`;('do{YU for encrypted password #3.
+[Decrypter #1]:	Sending server plain pw guess 2/G3kY7`;('do{YU with id=3
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 3.
+[Decrypter #1]:	Stopped generating keys for password # 3 after 1 iterations because received encrypted pasword # 4
+[Decrypter #1]:	Stopped generating keys for password # 4 after 37600 iterations because received encrypted pasword # 5
+[Decrypter #1]:	Stopped generating keys for password # 5 after 26208 iterations because received encrypted pasword # 6
+[Decrypter #1]:	Stopped generating keys for password # 6 after 16585 iterations because received encrypted pasword # 7
+[Decrypter #1]:	After 15848 iterations, found printable guess 'A#;\U#0?rZ^euS> for encrypted password #7.
+[Decrypter #1]:	Sending server plain pw guess 'A#;\U#0?rZ^euS> with id=7
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 7.
+[Decrypter #1]:	Stopped generating keys for password # 7 after 1 iterations because received encrypted pasword # 8
+[Decrypter #1]:	After 40524 iterations, found printable guess vtOUDH;#z&*skBat for encrypted password #8.
+[Decrypter #1]:	Sending server plain pw guess vtOUDH;#z&*skBat with id=8
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 8.
+[Decrypter #1]:	Stopped generating keys for password # 8 after 1 iterations because received encrypted pasword # 9
+[Decrypter #1]:	Stopped generating keys for password # 9 after 5511 iterations because received encrypted pasword # 10
+[Decrypter #1]:	Stopped generating keys for password # 10 after 45085 iterations because received encrypted pasword # 11
+[Decrypter #1]:	Stopped generating keys for password # 11 after 1 iterations because received encrypted pasword # 12
+[Decrypter #1]:	Stopped generating keys for password # 12 after 1139 iterations because received encrypted pasword # 13
+[Decrypter #1]:	After 74853 iterations, found printable guess d0xW<*EIom`JV=gb for encrypted password #13.
+[Decrypter #1]:	Sending server plain pw guess d0xW<*EIom`JV=gb with id=13
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 13.
+[Decrypter #1]:	Stopped generating keys for password # 13 after 1 iterations because received encrypted pasword # 14
+[Decrypter #1]:	After 5140 iterations, found printable guess ^4@9fE9QT2U3F//? for encrypted password #14.
+[Decrypter #1]:	Sending server plain pw guess ^4@9fE9QT2U3F//? with id=14
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 14.
+[Decrypter #1]:	Stopped generating keys for password # 14 after 1 iterations because received encrypted pasword # 15
+[Decrypter #1]:	Stopped generating keys for password # 15 after 4950 iterations because received encrypted pasword # 16
+[Decrypter #1]:	After 27001 iterations, found printable guess #J7")Y7njLn\=s;8 for encrypted password #16.
+[Decrypter #1]:	Sending server plain pw guess #J7")Y7njLn\=s;8 with id=16
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 16.
+[Decrypter #1]:	Stopped generating keys for password # 16 after 1 iterations because received encrypted pasword # 17
+[Decrypter #1]:	Stopped generating keys for password # 17 after 31609 iterations because received encrypted pasword # 18
+[Decrypter #1]:	Stopped id= 11
+[SERVER]:	Sending encrypted pw #11 to client #0.
+[SERVER]:	Sending encrypted pw #11 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess L$!HvSy`>Q3N/]~\ with id=11 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password L$!HvSy`>Q3N/]~\!
+
+[SERVER]	Created plain pw a8s[92TP7# a$CCw with len=16 and id= 12
+[SERVER]:	Sending encrypted pw #12 to client #0.
+[SERVER]:	Sending encrypted pw #12 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess a8s[92TP7# a$CCw with id=12 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password a8s[92TP7# a$CCw!
+
+[SERVER]	Created plain pw d0xW<*EIom`JV=gb with len=16 and id= 13
+[SERVER]:	Sending encrypted pw #13 to client #0.
+[SERVER]:	Sending encrypted pw #13 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess d0xW<*EIom`JV=gb with id=13 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password d0xW<*EIom`JV=gb!
+
+[SERVER]	Created plain pw ^4@9fE9QT2U3F//? with len=16 and id= 14
+[SERVER]:	Sending encrypted pw #14 to client #0.
+[SERVER]:	Sending encrypted pw #14 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ^4@9fE9QT2U3F//? with id=14 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password ^4@9fE9QT2U3F//?!
+
+[SERVER]	Created plain pw 9UYYxcWLE#iG8!%W with len=16 and id= 15
+[SERVER]:	Sending encrypted pw #15 to client #0.
+[SERVER]:	Sending encrypted pw #15 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 9UYYxcWLE#iG8!%W with id=15 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password 9UYYxcWLE#iG8!%W!
+
+[SERVER]	Created plain pw #J7")Y7njLn\=s;8 with len=16 and id= 16
+[SERVER]:	Sending encrypted pw #16 to client #0.
+[SERVER]:	Sending encrypted pw #16 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess #J7")Y7njLn\=s;8 with id=16 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password #J7")Y7njLn\=s;8!
+
+[SERVER]	Created plain pw /tnLgAEzq~&R78;1 with len=16 and id= 17
+[SERVER]:	Sending encrypted pw #17 to client #0.
+[SERVER]:	Sending encrypted pw #17 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess /tnLgAEzq~&R78;1 with id=17 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password /tnLgAEzq~&R78;1!
+
+[SERVER]	Created plain pw j_6UB1eS&68,"9~k with len=16 and id= 18
+[SERVER]:	Sending encrypted pw #18 to client #0.
+[SERVER]:	Sending encrypted pw #18 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess j_6UB1eS&68,"9~k with id=18 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password j_6UB1eS&68,"9~k!
+
+[SERVER]	Created plain pw yAMA/?r49Akrg'A+ with len=16 and id= 19
+[SERVER]:	Sending encrypted pw #19 to client #0.
+[SERVER]:	Sending encrypted pw #19 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess yAMA/?r49Akrg'A+ with id=19 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password yAMA/?r49Akrg'A+!
+
+[SERVER]	Created plain pw RrO\[`>x3;nL9*%N with len=16 and id= 20
+[SERVER]:	Sending encrypted pw #20 to client #0.
+[SERVER]:	Sending encrypted pw #20 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess RrO\[`>x3;nL9*%N with id=20 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password RrO\[`>x3;nL9*%N!
+
+[SERVER]	Created plain pw C_2:ar)M6{NZW\9= with len=16 and id= 21
+[SERVER]:	Sending encrypted pw #21 to client #0.
+[SERVER]:	Sending encrypted pw #21 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess C_2:ar)M6{NZW\9= with id=21 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password C_2:aing server plain pw guess 9UYYxcWLE#iG8!%W with id=15
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 15.
+[Decrypter #0]:	Stopped generating keys for password # 15 after 1 iterations because received encrypted pasword # 16
+[Decrypter #0]:	Stopped generating keys for password # 16 after 25283 iterations because received encrypted pasword # 17
+[Decrypter #0]:	After 31091 iterations, found printable guess /tnLgAEzq~&R78;1 for encrypted password #17.
+[Decrypter #0]:	Sending server plain pw guess /tnLgAEzq~&R78;1 with id=17
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 17.
+[Decrypter #0]:	Stopped generating keys for password # 17 after 1 iterations because received encrypted pasword # 18
+[Decrypter #0]:	After 41159 iterations, found printable guess j_6UB1eS&68,"9~k for encrypted password #18.
+[Decrypter #0]:	Sending server plain pw guess j_6UB1eS&68,"9~k with id=18
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 18.
+[Decrypter #0]:	Stopped generating keys for password # 18 after 1 iterations because received encrypted pasword # 19
+[Decrypter #0]:	Stopped generating keys for password # 19 after 1354 iterations because received encrypted pasword # 20
+[Decrypter #0]:	Stopped generating keys for password # 20 after 2353 iterations because received encrypted pasword # 21
+[Decrypter #0]:	After 2215 iterations, found printable guess C_2:ar)M6{NZW\9= for encrypted password #21.
+[Decrypter #0]:	Sending server plain pw guess C_2:ar)M6{NZW\9= with id=21
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 21.
+[Decrypter #0]:	Stopped generating keys for password # 21 after 1 iterations because received encrypted pasword # 22
+[Decrypter #0]:	Stopped generating keys for password # 22 after 91236 iterations because received encrypted pasword # 23
+[Decrypter #0]:	After 17280 iterations, found printable guess A`M[92\a/'~CY8Aq for encrypted password #23.
+[Decrypter #0]:	Sending server plain pw guess A`M[92\a/'~CY8Aq with id=23
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 23.
+[Decrypter #0]:	Stopped generating keys for password # 23 after 1 iterations because received encrypted pasword # 24
+[Decrypter #0]:	Stopped generating keys for password # 24 after 3431 iterations because received encrypted pasword # 25
+[Decrypter #0]:	After 3656 iterations, found printable guess tdaV0%D32W$(58<< for encrypted password #25.
+[Decrypter #0]:	Sending server plain pw guess tdaV0%D32W$(58<< with id=25
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 25.
+[Decrypter #0]:	Stopped generating keys for password # 25 after 1 iterations because received encrypted pasword # 26
+[Decrypter #0]:	After 18384 iterations, found printable guess <s{>E5bPIF+G.-a3 for encrypted password #26.
+[Decrypter #0]:	Sending server plain pw guess <s{>E5bPIF+G.-a3 with id=26
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 26.
+[Decrypter #0]:	Stopped generating keys for password # 26 after 1 iterations because received encrypted pasword # 27
+[Decrypter #0]:	After 21793 iterations, found printable guess -4jSPI.JJihFsRKu for encrypted password #27.
+[Decrypter #0]:	Sending server plain pw guess -4jSPI.JJihFsRKu with id=27
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 27.
+[Decrypter #0]:	Stopped generating keys for password # 27 after 1 iterations because received encrypted pasword # 28
+[Decrypter #0]:	Stopped generating keys for password # 28 after 11659 iterations because received encrypted pasword # 29
+[Decrypter #0]:	Stopped generating keys for password # 29 after 6227 iterations because received encrypted pasword # 30
+[Decrypter #0]:	After 165901 iterations, found printable guess E@A\7{e)uS4oL&Qh for encrypted password #30.
+[Decrypter #0]:	Sending server plain pw guess E@A\7{e)uS4oL&Qh with id=30
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 30.
+[Decrypter #0]:	Stopped generating keys for password # 30 afr)M6{NZW\9=!
+
+[SERVER]	Created plain pw 7PlN:u@5ng:A7;4e with len=16 and id= 22
+[SERVER]:	Sending encrypted pw #22 to client #0.
+[SERVER]:	Sending encrypted pw #22 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 7PlN:u@5ng:A7;4e with id=22 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password 7PlN:u@5ng:A7;4e!
+
+[SERVER]	Created plain pw A`M[92\a/'~CY8Aq with len=16 and id= 23
+[SERVER]:	Sending encrypted pw #23 to client #0.
+[SERVER]:	Sending encrypted pw #23 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess A`M[92\a/'~CY8Aq with id=23 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password A`M[92\a/'~CY8Aq!
+
+[SERVER]	Created plain pw Gnk*u)qLka;7^<!X with len=16 and id= 24
+[SERVER]:	Sending encrypted pw #24 to client #0.
+[SERVER]:	Sending encrypted pw #24 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess Gnk*u)qLka;7^<!X with id=24 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password Gnk*u)qLka;7^<!X!
+
+[SERVER]	Created plain pw tdaV0%D32W$(58<< with len=16 and id= 25
+[SERVER]:	Sending encrypted pw #25 to client #0.
+[SERVER]:	Sending encrypted pw #25 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess tdaV0%D32W$(58<< with id=25 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password tdaV0%D32W$(58<<!
+
+[SERVER]	Created plain pw <s{>E5bPIF+G.-a3 with len=16 and id= 26
+[SERVER]:	Sending encrypted pw #26 to client #0.
+[SERVER]:	Sending encrypted pw #26 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess <s{>E5bPIF+G.-a3 with id=26 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password <s{>E5bPIF+G.-a3!
+
+[SERVER]	Created plain pw -4jSPI.JJihFsRKu with len=16 and id= 27
+[SERVER]:	Sending encrypted pw #27 to client #0.
+[SERVER]:	Sending encrypted pw #27 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess -4jSPI.JJihFsRKu with id=27 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password -4jSPI.JJihFsRKu!
+
+[SERVER]	Created plain pw f|0r1-.8bPF3/ls< with len=16 and id= 28
+[SERVER]:	Sending encrypted pw #28 to client #0.
+[SERVER]:	Sending encrypted pw #28 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess f|0r1-.8bPF3/ls< with id=28 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password f|0r1-.8bPF3/ls<!
+
+[SERVER]	Created plain pw JfcHLPmqORZW[TX[ with len=16 and id= 29
+[SERVER]:	Sending encrypted pw #29 to client #0.
+[SERVER]:	Sending encrypted pw #29 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess JfcHLPmqORZW[TX[ with id=29 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password JfcHLPmqORZW[TX[!
+
+[SERVER]	Created plain pw E@A\7{e)uS4oL&Qh with len=16 and id= 30
+[SERVER]:	Sending encrypted pw #30 to client #0.
+[SERVER]:	Sending encrypted pw #30 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess E@A\7{e)uS4oL&Qh with id=30 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password E@A\7{e)uS4oL&Qh!
+
+[SERVER]	Created plain pw lbM9[cX_`3Y|>3$  with len=16 and id= 31
+[SERVER]:	Sending encrypted pw #31 to client #0.
+[SERVER]:	Sending encrypted pw #31 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess lbM9[cX_`3Y|>3$  with id=31 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password lbM9[cX_`3Y|>3$ !
+
+[SERVER]	Created plain pw |vtNV4"L'.Q#IFV? with len=16 and id= 32
+[SERVER]:	Sending encrypted pw #32 to client #0.
+[SERVER]:	Sending encrypted pw #32 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess |vtNV4"L'.Q#IFV? with id=32 fromgenerating keys for password # 18 after 40286 iterations because received encrypted pasword # 19
+[Decrypter #1]:	After 4008 iterations, found printable guess yAMA/?r49Akrg'A+ for encrypted password #19.
+[Decrypter #1]:	Sending server plain pw guess yAMA/?r49Akrg'A+ with id=19
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 19.
+[Decrypter #1]:	Stopped generating keys for password # 19 after 1 iterations because received encrypted pasword # 20
+[Decrypter #1]:	After 2099 iterations, found printable guess RrO\[`>x3;nL9*%N for encrypted password #20.
+[Decrypter #1]:	Sending server plain pw guess RrO\[`>x3;nL9*%N with id=20
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 20.
+[Decrypter #1]:	Stopped generating keys for password # 20 after 1 iterations because received encrypted pasword # 21
+[Decrypter #1]:	Stopped generating keys for password # 21 after 1 iterations because received encrypted pasword # 22
+[Decrypter #1]:	After 93635 iterations, found printable guess 7PlN:u@5ng:A7;4e for encrypted password #22.
+[Decrypter #1]:	Sending server plain pw guess 7PlN:u@5ng:A7;4e with id=22
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 22.
+[Decrypter #1]:	Stopped generating keys for password # 22 after 1 iterations because received encrypted pasword # 23
+[Decrypter #1]:	Stopped generating keys for password # 23 after 15640 iterations because received encrypted pasword # 24
+[Decrypter #1]:	After 4077 iterations, found printable guess Gnk*u)qLka;7^<!X for encrypted password #24.
+[Decrypter #1]:	Sending server plain pw guess Gnk*u)qLka;7^<!X with id=24
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 24.
+[Decrypter #1]:	Stopped generating keys for password # 24 after 1 iterations because received encrypted pasword # 25
+[Decrypter #1]:	Stopped generating keys for password # 25 after 3698 iterations because received encrypted pasword # 26
+[Decrypter #1]:	Stopped generating keys for password # 26 after 16908 iterations because received encrypted pasword # 27
+[Decrypter #1]:	Stopped generating keys for password # 27 after 25023 iterations because received encrypted pasword # 28
+[Decrypter #1]:	After 11345 iterations, found printable guess f|0r1-.8bPF3/ls< for encrypted password #28.
+[Decrypter #1]:	Sending server plain pw guess f|0r1-.8bPF3/ls< with id=28
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 28.
+[Decrypter #1]:	Stopped generating keys for password # 28 after 1 iterations because received encrypted pasword # 29
+[Decrypter #1]:	After 8001 iterations, found printable guess JfcHLPmqORZW[TX[ for encrypted password #29.
+[Decrypter #1]:	Sending server plain pw guess JfcHLPmqORZW[TX[ with id=29
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 29.
+[Decrypter #1]:	Stopped generating keys for password # 29 after 1 iterations because received encrypted pasword # 30
+[Decrypter #1]:	Stopped generating keys for password # 30 after 166575 iterations because received encrypted pasword # 31
+[Decrypter #1]:	Stopped generating keys for password # 31 after 56713 iterations because received encrypted pasword # 32
+[Decrypter #1]:	After 28617 iterations, found printable guess |vtNV4"L'.Q#IFV? for encrypted password #32.
+[Decrypter #1]:	Sending server plain pw guess |vtNV4"L'.Q#IFV? with id=32
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 32.
+[Decrypter #1]:	Stopped generating keys for password # 32 after 1 iterations because received encrypted pasword # 33
+[Decrypter #1]:	After 14501 iterations, found printable guess (f|JC%K&6dH.56Y` for encrypted password #33.
+[Decrypter #1]:	Sending server plain pw guess (f|JC%K&6dH.56Y` with id=33
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 33.
+[Decrypter #1]:	Stopped generating keys for password # 33 after 1 iterations because received encrypted pasword # 34
+[Decrypter #1]:	Stopped generating keys for password # 34 after 61280 iterations because received encryp client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password |vtNV4"L'.Q#IFV?!
+
+[SERVER]	Created plain pw (f|JC%K&6dH.56Y` with len=16 and id= 33
+[SERVER]:	Sending encrypted pw #33 to client #0.
+[SERVER]:	Sending encrypted pw #33 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess (f|JC%K&6dH.56Y` with id=33 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password (f|JC%K&6dH.56Y`!
+
+[SERVER]	Created plain pw M6</lVdC4)uSL"-* with len=16 and id= 34
+[SERVER]:	Sending encrypted pw #34 to client #0.
+[SERVER]:	Sending encrypted pw #34 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess M6</lVdC4)uSL"-* with id=34 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password M6</lVdC4)uSL"-*!
+
+[SERVER]	Created plain pw mdgwU,G74)O(f{b@ with len=16 and id= 35
+[SERVER]:	Sending encrypted pw #35 to client #0.
+[SERVER]:	Sending encrypted pw #35 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess mdgwU,G74)O(f{b@ with id=35 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password mdgwU,G74)O(f{b@!
+
+[SERVER]	Created plain pw _Q0u%h|Z4po29.?s with len=16 and id= 36
+[SERVER]:	Sending encrypted pw #36 to client #0.
+[SERVER]:	Sending encrypted pw #36 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess _Q0u%h|Z4po29.?s with id=36 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password _Q0u%h|Z4po29.?s!
+
+[SERVER]	Created plain pw o(1R[oz~o$']*dpJ with len=16 and id= 37
+[SERVER]:	Sending encrypted pw #37 to client #0.
+[SERVER]:	Sending encrypted pw #37 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess o(1R[oz~o$']*dpJ with id=37 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password o(1R[oz~o$']*dpJ!
+
+[SERVER]	Created plain pw By%t)S&%)x|^-_c% with len=16 and id= 38
+[SERVER]:	Sending encrypted pw #38 to client #0.
+[SERVER]:	Sending encrypted pw #38 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess By%t)S&%)x|^-_c% with id=38 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password By%t)S&%)x|^-_c%!
+
+[SERVER]	Created plain pw &+#G=yl@6%&#^C4S with len=16 and id= 39
+[SERVER]:	Sending encrypted pw #39 to client #0.
+[SERVER]:	Sending encrypted pw #39 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess &+#G=yl@6%&#^C4S with id=39 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password &+#G=yl@6%&#^C4S!
+
+[SERVER]	Created plain pw &.PFN"xkfa:%@DEs with len=16 and id= 40
+[SERVER]:	Sending encrypted pw #40 to client #0.
+[SERVER]:	Sending encrypted pw #40 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess &.PFN"xkfa:%@DEs with id=40 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password &.PFN"xkfa:%@DEs!
+
+[SERVER]	Created plain pw =UmK%N,&O&nIM+UD with len=16 and id= 41
+[SERVER]:	Sending encrypted pw #41 to client #0.
+[SERVER]:	Sending encrypted pw #41 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess =UmK%N,&O&nIM+UD with id=41 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password =UmK%N,&O&nIM+UD!
+
+[SERVER]	Created plain pw X,4V4n`%%x,R{v<? with len=16 and id= 42
+[SERVER]:	Sending encrypted pw #42 to client #0.
+[SERVER]:	Sending encrypted pw #42 to client #1.
+[SERVER]	Reading message
+[SERVER]	Received message of type 0.
+[SERVER]:	Received connection request from client #3
+[SERVER]:	Added client #3
+[SERVER]:	Sending encrypted pw #42 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess X,4V4n`%%x,R{v<? with id=42 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password X,4V4n`%%x,R{v<?!
+
+[SERVER]	Created plain pw 3-zted pasword # 35
+[Decrypter #1]:	After 81516 iterations, found printable guess mdgwU,G74)O(f{b@ for encrypted password #35.
+[Decrypter #1]:	Sending server plain pw guess mdgwU,G74)O(f{b@ with id=35
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 35.
+[Decrypter #1]:	Stopped generating keys for password # 35 after 1 iterations because received encrypted pasword # 36
+[Decrypter #1]:	After 13863 iterations, found printable guess _Q0u%h|Z4po29.?s for encrypted password #36.
+[Decrypter #1]:	Sending server plain pw guess _Q0u%h|Z4po29.?s with id=36
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 36.
+[Decrypter #1]:	Stopped generating keys for password # 36 after 1 iterations because received encrypted pasword # 37
+[Decrypter #1]:	After 1232 iterations, found printable guess o(1R[oz~o$']*dpJ for encrypted password #37.
+[Decrypter #1]:	Sending server plain pw guess o(1R[oz~o$']*dpJ with id=37
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 37.
+[Decrypter #1]:	Stopped generating keys for password # 37 after 1 iterations because received encrypted pasword # 38
+[Decrypter #1]:	Stopped generating keys for password # 38 after 36863 iterations because received encrypted pasword # 39
+[Decrypter #1]:	After 4202 iterations, found printable guess &+#G=yl@6%&#^C4S for encrypted password #39.
+[Decrypter #1]:	Sending server plain pw guess &+#G=yl@6%&#^C4S with id=39
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 39.
+[Decrypter #1]:	Stopped generating keys for password # 39 after 1 iterations because received encrypted pasword # 40
+[Decrypter #1]:	After 63671 iterations, found printable guess &.PFN"xkfa:%@DEs for encrypted password #40.
+[Decrypter #1]:	Sending server plain pw guess &.PFN"xkfa:%@DEs with id=40
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 40.
+[Decrypter #1]:	Stopped generating keys for password # 40 after 1 iterations because received encrypted pasword # 41
+[Decrypter #1]:	Stopped generating keys for password # 41 after 6939 iterations because received encrypted pasword # 42
+[Decrypter #1]:	After 24980 iterations, found printable guess X,4V4n`%%x,R{v<? for encrypted password #42.
+[Decrypter #1]:	Sending server plain pw guess X,4V4n`%%x,R{v<? with id=42
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 42.
+[Decrypter #1]:	Stopped generating keys for password # 42 after 1 iterations because received encrypted pasword # 43
+[Decrypter #1]:	After 4247 iterations, found printable guess 3-zbvQ>m|WZ?Bd>A for encrypted password #43.
+[Decrypter #1]:	Sending server plain pw guess 3-zbvQ>m|WZ?Bd>A with id=43
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 43.
+[Decrypter #1]:	Stopped generating keys for password # 43 after 1 iterations because received encrypted pasword # 44
+[Decrypter #1]:	Stopped generating keys for password # 44 after 1 iterations because received encrypted pasword # 45
+[Decrypter #1]:	Stopped generating keys for password # 45 after 6970 iterations because received encrypted pasword # 46
+[Decrypter #1]:	Stopped generating keys for password # 46 after 1057 iterations because received encrypted pasword # 47
+[Decrypter #1]:	Stopped generating keys for password # 47 after 2652 iterations because received encrypted pasword # 48
+[Decrypter #1]:	After 37812 iterations, found printable guess =pjF<*kAET a%G*2 for encrypted password #48.
+[Decrypter #1]:	Sending server plain pw guess =pjF<*kAET a%G*2 with id=48
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 48.
+[Decrypter #1]:	Stopped generating keys for password # 48 after 1 iterations because received encrypted pasword # 49
+[Decrypter #1]:	Stopped generating keys for password # 49 after 42232 iterations because received encrypted pasword # 50
+[Decrypter #1]:	After 56190 iterations, found printable guess i>WYOv:4 3t4nAw  for encrypted password #50.
+[Decrypter #1]:	Sending server plain pw guess i>WYOv:4 3t4nAw  with id=50
+
+[DecrbvQ>m|WZ?Bd>A with len=16 and id= 43
+[SERVER]:	Sending encrypted pw #43 to client #0.
+[SERVER]:	Sending encrypted pw #43 to client #1.
+[SERVER]:	Sending encrypted pw #43 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 3-zbvQ>m|WZ?Bd>A with id=43 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password 3-zbvQ>m|WZ?Bd>A!
+
+[SERVER]	Created plain pw 0*>R(mBNYNG!340A with len=16 and id= 44
+[SERVER]:	Sending encrypted pw #44 to client #0.
+[SERVER]:	Sending encrypted pw #44 to client #1.
+[SERVER]:	Sending encrypted pw #44 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 0*>R(mBNYNG!340A with id=44 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password 0*>R(mBNYNG!340A!
+
+[SERVER]	Created plain pw  ex,41MX[#H5[_el with len=16 and id= 45
+[SERVER]:	Sending encrypted pw #45 to client #0.
+[SERVER]:	Sending encrypted pw #45 to client #1.
+[SERVER]:	Sending encrypted pw #45 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess  ex,41MX[#H5[_el with id=45 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password  ex,41MX[#H5[_el!
+
+[SERVER]	Created plain pw n$fUn~K'&_6.{7,, with len=16 and id= 46
+[SERVER]:	Sending encrypted pw #46 to client #0.
+[SERVER]:	Sending encrypted pw #46 to client #1.
+[SERVER]:	Sending encrypted pw #46 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess n$fUn~K'&_6.{7,, with id=46 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password n$fUn~K'&_6.{7,,!
+
+[SERVER]	Created plain pw *VLFaETsQ,R0,Km! with len=16 and id= 47
+[SERVER]:	Sending encrypted pw #47 to client #0.
+[SERVER]:	Sending encrypted pw #47 to client #1.
+[SERVER]:	Sending encrypted pw #47 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess *VLFaETsQ,R0,Km! with id=47 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password *VLFaETsQ,R0,Km!!
+
+[SERVER]	Created plain pw =pjF<*kAET a%G*2 with len=16 and id= 48
+[SERVER]:	Sending encrypted pw #48 to client #0.
+[SERVER]:	Sending encrypted pw #48 to client #1.
+[SERVER]:	Sending encrypted pw #48 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess =pjF<*kAET a%G*2 with id=48 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password =pjF<*kAET a%G*2!
+
+[SERVER]	Created plain pw [w#'~cN,0V11-ydB with len=16 and id= 49
+[SERVER]:	Sending encrypted pw #49 to client #0.
+[SERVER]:	Sending encrypted pw #49 to client #1.
+[SERVER]:	Sending encrypted pw #49 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess [w#'~cN,0V11-ydB with id=49 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password [w#'~cN,0V11-ydB!
+
+[SERVER]	Created plain pw i>WYOv:4 3t4nAw  with len=16 and id= 50
+[SERVER]:	Sending encrypted pw #50 to client #0.
+[SERVER]:	Sending encrypted pw #50 to client #1.
+[SERVER]:	Sending encrypted pw #50 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess i>WYOv:4 3t4nAw  with id=50 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password i>WYOv:4 3t4nAw !
+
+[SERVER]	Created plain pw 1c(qZL%))%mjmpo= with len=16 and id= 51
+[SERVER]:	Sending encrypted pw #51 to client #0.
+[SERVER]:	Sending encrypted pw #51 to client #1.
+[SERVER]:	Sending encrypted pw #51 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess i>WYOv:4 3t4nAw  with id=50 from client_id=1
+[SERVER]:	Decrypter #1 incorrectly used id #50. Should be using id #51.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 1c(qZL%))%mjmpo= with id=51 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password 1c(qZL%))%mjmpo=!
+
+[SERVER]	Created plain pw Y&&kd>sa<4hZ/'NK with len=16 and iter 1 iterations because received encrypted pasword # 31
+[Decrypter #0]:	After 60165 iterations, found printable guess lbM9[cX_`3Y|>3$  for encrypted password #31.
+[Decrypter #0]:	Sending server plain pw guess lbM9[cX_`3Y|>3$  with id=31
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 31.
+[Decrypter #0]:	Stopped generating keys for password # 31 after 1 iterations because received encrypted pasword # 32
+[Decrypter #0]:	Stopped generating keys for password # 32 after 26077 iterations because received encrypted pasword # 33
+[Decrypter #0]:	Stopped generating keys for password # 33 after 16918 iterations because received encrypted pasword # 34
+[Decrypter #0]:	After 60400 iterations, found printable guess M6</lVdC4)uSL"-* for encrypted password #34.
+[Decrypter #0]:	Sending server plain pw guess M6</lVdC4)uSL"-* with id=34
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 34.
+[Decrypter #0]:	Stopped generating keys for password # 34 after 1 iterations because received encrypted pasword # 35
+[Decrypter #0]:	Stopped generating keys for password # 35 after 81007 iterations because received encrypted pasword # 36
+[Decrypter #0]:	Stopped generating keys for password # 36 after 14666 iterations because received encrypted pasword # 37
+[Decrypter #0]:	Stopped generating keys for password # 37 after 1 iterations because received encrypted pasword # 38
+[Decrypter #0]:	After 37274 iterations, found printable guess By%t)S&%)x|^-_c% for encrypted password #38.
+[Decrypter #0]:	Sending server plain pw guess By%t)S&%)x|^-_c% with id=38
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 38.
+[Decrypter #0]:	Stopped generating keys for password # 38 after 1 iterations because received encrypted pasword # 39
+[Decrypter #0]:	Stopped generating keys for password # 39 after 3899 iterations because received encrypted pasword # 40
+[Decrypter #0]:	Stopped generating keys for password # 40 after 62093 iterations because received encrypted pasword # 41
+[Decrypter #0]:	After 6077 iterations, found printable guess =UmK%N,&O&nIM+UD for encrypted password #41.
+[Decrypter #0]:	Sending server plain pw guess =UmK%N,&O&nIM+UD with id=41
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 41.
+[Decrypter #0]:	Stopped generating keys for password # 41 after 1 iterations because received encrypted pasword # 42
+[Decrypter #0]:	Stopped generating keys for password # 42 after 24332 iterations because received encrypted pasword # 43
+[Decrypter #0]:	Stopped generating keys for password # 43 after 2599 iterations because received encrypted pasword # 44
+[Decrypter #0]:	Stopped generating keys for password # 44 after 2214 iterations because received encrypted pasword # 45
+[Decrypter #0]:	Stopped generating keys for password # 45 after 7095 iterations because received encrypted pasword # 46
+[Decrypter #0]:	Stopped generating keys for password # 46 after 1 iterations because received encrypted pasword # 47
+[Decrypter #0]:	After 2527 iterations, found printable guess *VLFaETsQ,R0,Km! for encrypted password #47.
+[Decrypter #0]:	Sending server plain pw guess *VLFaETsQ,R0,Km! with id=47
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 47.
+[Decrypter #0]:	Stopped generating keys for password # 47 after 1 iterations because received encrypted pasword # 48
+[Decrypter #0]:	Stopped generating keys for password # 48 after 38213 iterations because received encrypted pasword # 49
+[Decrypter #0]:	Stopped generating keys for password # 49 after 40760 iterations because received encrypted pasword # 50
+[Decrypter #0]:	After 57179 iterations, found printable guess i>WYOv:4 3t4nAw  for encrypted password #50.
+[Decrypter #0]:	Sending server plain pw guess i>WYOv:4 3t4nAw  with id=50
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 50.
+[Decrypter #0]:	Stopped generating keys for password # 50 after 1 iterations because received encrypted pasword # 51
+[Decrypter #0]:	Stopped generating keys for password # 51 after 186d= 52
+[SERVER]:	Sending encrypted pw #52 to client #0.
+[SERVER]:	Sending encrypted pw #52 to client #1.
+[SERVER]:	Sending encrypted pw #52 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess Y&&kd>sa<4hZ/'NK with id=52 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password Y&&kd>sa<4hZ/'NK!
+
+[SERVER]	Created plain pw F81=@Pr@jPzQt/GF with len=16 and id= 53
+[SERVER]:	Sending encrypted pw #53 to client #0.
+[SERVER]:	Sending encrypted pw #53 to client #1.
+[SERVER]:	Sending encrypted pw #53 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess F81=@Pr@jPzQt/GF with id=53 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password F81=@Pr@jPzQt/GF!
+
+[SERVER]	Created plain pw _+/VR-SZS-5K~'*` with len=16 and id= 54
+[SERVER]:	Sending encrypted pw #54 to client #0.
+[SERVER]:	Sending encrypted pw #54 to client #1.
+[SERVER]:	Sending encrypted pw #54 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess _+/VR-SZS-5K~'*` with id=54 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password _+/VR-SZS-5K~'*`!
+
+[SERVER]	Created plain pw hmovQFN,)~YMElFu with len=16 and id= 55
+[SERVER]:	Sending encrypted pw #55 to client #0.
+[SERVER]:	Sending encrypted pw #55 to client #1.
+[SERVER]:	Sending encrypted pw #55 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess hmovQFN,)~YMElFu with id=55 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password hmovQFN,)~YMElFu!
+
+[SERVER]	Created plain pw '{\w:Q=X\+~UYe\s with len=16 and id= 56
+[SERVER]:	Sending encrypted pw #56 to client #0.
+[SERVER]:	Sending encrypted pw #56 to client #1.
+[SERVER]:	Sending encrypted pw #56 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess '{\w:Q=X\+~UYe\s with id=56 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password '{\w:Q=X\+~UYe\s!
+
+[SERVER]	Created plain pw ]j!d*1}9>#hFGpUq with len=16 and id= 57
+[SERVER]:	Sending encrypted pw #57 to client #0.
+[SERVER]:	Sending encrypted pw #57 to client #1.
+[SERVER]:	Sending encrypted pw #57 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ]j!d*1}9>#hFGpUq with id=57 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password ]j!d*1}9>#hFGpUq!
+
+[SERVER]	Created plain pw OzN3)]RLg9)&UU\\ with len=16 and id= 58
+[SERVER]:	Sending encrypted pw #58 to client #0.
+[SERVER]:	Sending encrypted pw #58 to client #1.
+[SERVER]:	Sending encrypted pw #58 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess OzN3)]RLg9)&UU\\ with id=58 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password OzN3)]RLg9)&UU\\!
+
+[SERVER]	Created plain pw +Ma$U@j%Kf<Cemcw with len=16 and id= 59
+[SERVER]:	Sending encrypted pw #59 to client #0.
+[SERVER]:	Sending encrypted pw #59 to client #1.
+[SERVER]:	Sending encrypted pw #59 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess +Ma$U@j%Kf<Cemcw with id=59 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password +Ma$U@j%Kf<Cemcw!
+
+[SERVER]	Created plain pw {`d?A]eCF1fD`>Nt with len=16 and id= 60
+[SERVER]:	Sending encrypted pw #60 to client #0.
+[SERVER]:	Sending encrypted pw #60 to client #1.
+[SERVER]:	Sending encrypted pw #60 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess {`d?A]eCF1fD`>Nt with id=60 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password {`d?A]eCF1fD`>Nt!
+
+[SERVER]	Created plain pw \Z8!5'44L@sQs6\$ with len=16 and id= 61
+[SERVER]:	Sending encrypted pw #61 to client #0.
+[SERVER]:	Sending encrypted pw #61 to client #1.
+[SERVER]:	Sending encrypted pw #61 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess \Z8!5'44L@sQs6\$ with id=61 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password \Z8!5'44L@sQs6\$!
+
+[SERVER]	Created plain pw FG&)*d2/V4 yWDwU with len=16 and id= 62
+[SERVER]:	Sending encrypted pw #62 to client #0.
+[SERVER]:	Sending encrypted pw #62 to client #1.
+[SERVER]:	Sending encrypted pw #62 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess FG&)*d2/V4 yWDwU with id=62 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password FG&)*d2/V4 yWDwU!
+
+[SERVER]	Created plain pw ^zpw{GDjQ>7F^nbv with len=16 and id= 63
+[SERVER]:	Sending encrypted pw #63 to client #0.
+[SERVER]:	Sending encrypted pw #63 to client #1.
+[SERVER]:	Sending encrypted pw #63 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ^zpw{GDjQ>7F^nbv with id=63 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password ^zpw{GDjQ>7F^nbv!
+
+[SERVER]	Created plain pw MC!X3VY9JJJt7{p9 with len=16 and id= 64
+[SERVER]:	Sending encrypted pw #64 to client #0.
+[SERVER]:	Sending encrypted pw #64 to client #1.
+[SERVER]:	Sending encrypted pw #64 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess MC!X3VY9JJJt7{p9 with id=64 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password MC!X3VY9JJJt7{p9!
+
+[SERVER]	Created plain pw lNO-;WBL-diCG1?G with len=16 and id= 65
+[SERVER]:	Sending encrypted pw #65 to client #0.
+[SERVER]:	Sending encrypted pw #65 to client #1.
+[SERVER]:	Sending encrypted pw #65 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess lNO-;WBL-diCG1?G with id=65 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password lNO-;WBL-diCG1?G!
+
+[SERVER]	Created plain pw L<C9_2P*+T?sKb"- with len=16 and id= 66
+[SERVER]:	Sending encrypted pw #66 to client #0.
+[SERVER]:	Sending encrypted pw #66 to client #1.
+[SERVER]:	Sending encrypted pw #66 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess L<C9_2P*+T?sKb"- with id=66 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password L<C9_2P*+T?sKb"-!
+
+[SERVER]	Created plain pw &if"t9(zOWL3Qi-e with len=16 and id= 67
+[SERVER]:	Sending encrypted pw #67 to client #0.
+[SERVER]:	Sending encrypted pw #67 to client #1.
+[SERVER]:	Sending encrypted pw #67 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess &if"t9(zOWL3Qi-e with id=67 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password &if"t9(zOWL3Qi-e!
+
+[SERVER]	Created plain pw Uh855h* #oM;^eeN with len=16 and id= 68
+[SERVER]:	Sending encrypted pw #68 to client #0.
+[SERVER]:	Sending encrypted pw #68 to client #1.
+[SERVER]:	Sending encrypted pw #68 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess Uh855h* #oM;^eeN with id=68 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password Uh855h* #oM;^eeN!
+
+[SERVER]	Created plain pw x4.8<0<W&-T3<H"y with len=16 and id= 69
+[SERVER]:	Sending encrypted pw #69 to client #0.
+[SERVER]:	Sending encrypted pw #69 to client #1.
+[SERVER]:	Sending encrypted pw #69 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess x4.8<0<W&-T3<H"y with id=69 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password x4.8<0<W&-T3<H"y!
+
+[SERVER]	Created plain pw oDcX>k9}#**}&&h* with len=16 and id= 70
+[SERVER]:	Sending encrypted pw #70 to client #0.
+[SERVER]:	Sending encrypted pw #70 to client #1.
+[SERVER]:	Sending encrypted pw #70 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess oDcX>k9}#**}&&h* with id=70 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password oDcX>k9}#**}&&h*!
+
+[SERVER]	Created plain pw w:HO])L*oM$X+%<) with len=16 and id= 71
+[SERVER]:	Sending encrypted pw #71 to client #0.
+[SERVypter #1]:	Trying to generate printable password for encrypted password # 50.
+[Decrypter #1]:	Stopped generating keys for password # 50 after 1 iterations because received encrypted pasword # 51
+[Decrypter #1]:	Stopped generating keys for password # 51 after 16025 iterations because received encrypted pasword # 52
+[Decrypter #1]:	After 31899 iterations, found printable guess Y&&kd>sa<4hZ/'NK for encrypted password #52.
+[Decrypter #1]:	Sending server plain pw guess Y&&kd>sa<4hZ/'NK with id=52
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 52.
+[Decrypter #1]:	Stopped generating keys for password # 52 after 1 iterations because received encrypted pasword # 53
+[Decrypter #1]:	After 9287 iterations, found printable guess F81=@Pr@jPzQt/GF for encrypted password #53.
+[Decrypter #1]:	Sending server plain pw guess F81=@Pr@jPzQt/GF with id=53
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 53.
+[Decrypter #1]:	Stopped generating keys for password # 53 after 1 iterations because received encrypted pasword # 54
+[Decrypter #1]:	Stopped generating keys for password # 54 after 28864 iterations because received encrypted pasword # 55
+[Decrypter #1]:	Stopped generating keys for password # 55 after 1252 iterations because received encrypted pasword # 56
+[Decrypter #1]:	Stopped generating keys for password # 56 after 12016 iterations because received encrypted pasword # 57
+[Decrypter #1]:	After 50793 iterations, found printable guess ]j!d*1}9>#hFGpUq for encrypted password #57.
+[Decrypter #1]:	Sending server plain pw guess ]j!d*1}9>#hFGpUq with id=57
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 57.
+[Decrypter #1]:	Stopped generating keys for password # 57 after 1 iterations because received encrypted pasword # 58
+[Decrypter #1]:	Stopped generating keys for password # 58 after 24377 iterations because received encrypted pasword # 59
+[Decrypter #1]:	Stopped generating keys for password # 59 after 1 iterations because received encrypted pasword # 60
+[Decrypter #1]:	Stopped generating keys for password # 60 after 7407 iterations because received encrypted pasword # 61
+[Decrypter #1]:	Stopped generating keys for password # 61 after 77209 iterations because received encrypted pasword # 62
+[Decrypter #1]:	Stopped generating keys for password # 62 after 8568 iterations because received encrypted pasword # 63
+[Decrypter #1]:	Stopped generating keys for password # 63 after 6900 iterations because received encrypted pasword # 64
+[Decrypter #1]:	Stopped generating keys for password # 64 after 1 iterations because received encrypted pasword # 65
+[Decrypter #1]:	After 16847 iterations, found printable guess lNO-;WBL-diCG1?G for encrypted password #65.
+[Decrypter #1]:	Sending server plain pw guess lNO-;WBL-diCG1?G with id=65
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 65.
+[Decrypter #1]:	Stopped generating keys for password # 65 after 1 iterations because received encrypted pasword # 66
+[Decrypter #1]:	After 50442 iterations, found printable guess L<C9_2P*+T?sKb"- for encrypted password #66.
+[Decrypter #1]:	Sending server plain pw guess L<C9_2P*+T?sKb"- with id=66
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 66.
+[Decrypter #1]:	Stopped generating keys for password # 66 after 1 iterations because received encrypted pasword # 67
+[Decrypter #1]:	Stopped generating keys for password # 67 after 7591 iterations because received encrypted pasword # 68
+[Decrypter #1]:	Stopped generating keys for password # 68 after 18253 iterations because received encrypted pasword # 69
+[Decrypter #1]:	Stopped generating keys for password # 69 after 6769 iterations because received encrypted pasword # 70
+[Decrypter #1]:	After 14067 iterations, found printable guess oDcX>k9}#**}&&h* for encrypted password #70.
+[Decrypter #1]:	Sending server plain pw guess oDcX>k9}#**}&&h* with id=70
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 70.
+[Decrypter #1]:	Stopped generating keys for pas80 iterations because received encrypted pasword # 52
+[Decrypter #0]:	Stopped generating keys for password # 52 after 30891 iterations because received encrypted pasword # 53
+[Decrypter #0]:	Stopped generating keys for password # 53 after 5967 iterations because received encrypted pasword # 54
+[Decrypter #0]:	After 30585 iterations, found printable guess _+/VR-SZS-5K~'*` for encrypted password #54.
+[Decrypter #0]:	Sending server plain pw guess _+/VR-SZS-5K~'*` with id=54
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 54.
+[Decrypter #0]:	Stopped generating keys for password # 54 after 1 iterations because received encrypted pasword # 55
+[Decrypter #0]:	Stopped generating keys for password # 55 after 2191 iterations because received encrypted pasword # 56
+[Decrypter #0]:	After 9757 iterations, found printable guess '{\w:Q=X\+~UYe\s for encrypted password #56.
+[Decrypter #0]:	Sending server plain pw guess '{\w:Q=X\+~UYe\s with id=56
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 56.
+[Decrypter #0]:	Stopped generating keys for password # 56 after 1 iterations because received encrypted pasword # 57
+[Decrypter #0]:	Stopped generating keys for password # 57 after 49668 iterations because received encrypted pasword # 58
+[Decrypter #0]:	Stopped generating keys for password # 58 after 23498 iterations because received encrypted pasword # 59
+[Decrypter #0]:	After 1043 iterations, found printable guess +Ma$U@j%Kf<Cemcw for encrypted password #59.
+[Decrypter #0]:	Sending server plain pw guess +Ma$U@j%Kf<Cemcw with id=59
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 59.
+[Decrypter #0]:	Stopped generating keys for password # 59 after 1 iterations because received encrypted pasword # 60
+[Decrypter #0]:	Stopped generating keys for password # 60 after 9665 iterations because received encrypted pasword # 61
+[Decrypter #0]:	Stopped generating keys for password # 61 after 73374 iterations because received encrypted pasword # 62
+[Decrypter #0]:	After 8715 iterations, found printable guess FG&)*d2/V4 yWDwU for encrypted password #62.
+[Decrypter #0]:	Sending server plain pw guess FG&)*d2/V4 yWDwU with id=62
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 62.
+[Decrypter #0]:	Stopped generating keys for password # 62 after 1 iterations because received encrypted pasword # 63
+[Decrypter #0]:	After 5938 iterations, found printable guess ^zpw{GDjQ>7F^nbv for encrypted password #63.
+[Decrypter #0]:	Sending server plain pw guess ^zpw{GDjQ>7F^nbv with id=63
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 63.
+[Decrypter #0]:	Stopped generating keys for password # 63 after 1 iterations because received encrypted pasword # 64
+[Decrypter #0]:	Stopped generating keys for password # 64 after 1198 iterations because received encrypted pasword # 65
+[Decrypter #0]:	Stopped generating keys for password # 65 after 16994 iterations because received encrypted pasword # 66
+[Decrypter #0]:	Stopped generating keys for password # 66 after 50623 iterations because received encrypted pasword # 67
+[Decrypter #0]:	After 7619 iterations, found printable guess &if"t9(zOWL3Qi-e for encrypted password #67.
+[Decrypter #0]:	Sending server plain pw guess &if"t9(zOWL3Qi-e with id=67
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 67.
+[Decrypter #0]:	Stopped generating keys for password # 67 after 1 iterations because received encrypted pasword # 68
+[Decrypter #0]:	Stopped generating keys for password # 68 after 18927 iterations because received encrypted pasword # 69
+[Decrypter #0]:	Stopped generating keys for password # 69 after 6282 iterations because received encrypted pasword # 70
+[Decrypter #0]:	Stopped generating keys for password # 70 after 13968 iterations because received encrypted pasword # 71
+[Decrypter #0]:	After 24774 iterations, found printable guess w:HO])L*oM$X+%<) for encrypted password #71.
+[Decrypter #0]:	Sending server plain pw guess w:HO])L*oM$X+%<) with id=71
+
+[DecrER]:	Sending encrypted pw #71 to client #1.
+[SERVER]:	Sending encrypted pw #71 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess w:HO])L*oM$X+%<) with id=71 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password w:HO])L*oM$X+%<)!
+
+[SERVER]	Created plain pw 9YF-<}hFFU0/KK3/ with len=16 and id= 72
+[SERVER]:	Sending encrypted pw #72 to client #0.
+[SERVER]:	Sending encrypted pw #72 to client #1.
+[SERVER]:	Sending encrypted pw #72 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 9YF-<}hFFU0/KK3/ with id=72 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password 9YF-<}hFFU0/KK3/!
+
+[SERVER]	Created plain pw a;UODWAAOu9:dBRU with len=16 and id= 73
+[SERVER]:	Sending encrypted pw #73 to client #0.
+[SERVER]:	Sending encrypted pw #73 to client #1.
+[SERVER]:	Sending encrypted pw #73 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess a;UODWAAOu9:dBRU with id=73 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password a;UODWAAOu9:dBRU!
+
+[SERVER]	Created plain pw g'C9$NtxKRuOu`Es with len=16 and id= 74
+[SERVER]:	Sending encrypted pw #74 to client #0.
+[SERVER]:	Sending encrypted pw #74 to client #1.
+[SERVER]:	Sending encrypted pw #74 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess g'C9$NtxKRuOu`Es with id=74 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password g'C9$NtxKRuOu`Es!
+
+[SERVER]	Created plain pw C^5=XN-rP#/Ue00, with len=16 and id= 75
+[SERVER]:	Sending encrypted pw #75 to client #0.
+[SERVER]:	Sending encrypted pw #75 to client #1.
+[SERVER]:	Sending encrypted pw #75 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess C^5=XN-rP#/Ue00, with id=75 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password C^5=XN-rP#/Ue00,!
+
+[SERVER]	Created plain pw Q*wiH"Hozd?fe@S. with len=16 and id= 76
+[SERVER]:	Sending encrypted pw #76 to client #0.
+[SERVER]:	Sending encrypted pw #76 to client #1.
+[SERVER]:	Sending encrypted pw #76 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess Q*wiH"Hozd?fe@S. with id=76 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password Q*wiH"Hozd?fe@S.!
+
+[SERVER]	Created plain pw $J+NK8E1?5Fs $(, with len=16 and id= 77
+[SERVER]:	Sending encrypted pw #77 to client #0.
+[SERVER]:	Sending encrypted pw #77 to client #1.
+[SERVER]:	Sending encrypted pw #77 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess $J+NK8E1?5Fs $(, with id=77 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password $J+NK8E1?5Fs $(,!
+
+[SERVER]	Created plain pw 3swbe<~JQ$;oUlS} with len=16 and id= 78
+[SERVER]:	Sending encrypted pw #78 to client #0.
+[SERVER]:	Sending encrypted pw #78 to client #1.
+[SERVER]:	Sending encrypted pw #78 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 3swbe<~JQ$;oUlS} with id=78 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password 3swbe<~JQ$;oUlS}!
+
+[SERVER]	Created plain pw >y^!(_b<n}\P<f@> with len=16 and id= 79
+[SERVER]:	Sending encrypted pw #79 to client #0.
+[SERVER]:	Sending encrypted pw #79 to client #1.
+[SERVER]:	Sending encrypted pw #79 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess >y^!(_b<n}\P<f@> with id=79 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password >y^!(_b<n}\P<f@>!
+
+[SERVER]	Created plain pw ~MYIFCbLzX6>{p(! with len=16 and id= 80
+[SERVER]:	Sending encrypted pw #80 to client #0.
+[SERVER]:	Sending encrypted pw #80 to client #1.
+[SERVER]:	Sending encrypted pw #80 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ~MYIFCbLzX6>{p(! with id=80 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password ~MYIFCbLzX6>{p(!!
+
+[SERVER]	Created plain pw &z-eC+G54A/2U=X2 with len=16 and id= 81
+[SERVER]:	Sending encrypted pw #81 to client #0.
+[SERVER]:	Sending encrypted pw #81 to client #1.
+[SERVER]:	Sending encrypted pw #81 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess &z-eC+G54A/2U=X2 with id=81 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password &z-eC+G54A/2U=X2!
+
+[SERVER]	Created plain pw )B!wXgQUR ;h-&Ts with len=16 and id= 82
+[SERVER]:	Sending encrypted pw #82 to client #0.
+[SERVER]:	Sending encrypted pw #82 to client #1.
+[SERVER]:	Sending encrypted pw #82 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess )B!wXgQUR ;h-&Ts with id=82 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password )B!wXgQUR ;h-&Ts!
+
+[SERVER]	Created plain pw amtf!H"_D9\#dTpR with len=16 and id= 83
+[SERVER]:	Sending encrypted pw #83 to client #0.
+[SERVER]:	Sending encrypted pw #83 to client #1.
+[SERVER]:	Sending encrypted pw #83 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess amtf!H"_D9\#dTpR with id=83 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password amtf!H"_D9\#dTpR!
+
+[SERVER]	Created plain pw fT\_$-++``:%LO@- with len=16 and id= 84
+[SERVER]:	Sending encrypted pw #84 to client #0.
+[SERVER]:	Sending encrypted pw #84 to client #1.
+[SERVER]:	Sending encrypted pw #84 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess fT\_$-++``:%LO@- with id=84 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password fT\_$-++``:%LO@-!
+
+[SERVER]	Created plain pw j'<DL81oM=:O.JC8 with len=16 and id= 85
+[SERVER]:	Sending encrypted pw #85 to client #0.
+[SERVER]:	Sending encrypted pw #85 to client #1.
+[SERVER]:	Sending encrypted pw #85 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess j'<DL81oM=:O.JC8 with id=85 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password j'<DL81oM=:O.JC8!
+
+[SERVER]	Created plain pw K&#'MT;O5)rccn]] with len=16 and id= 86
+[SERVER]:	Sending encrypted pw #86 to client #0.
+[SERVER]:	Sending encrypted pw #86 to client #1.
+[SERVER]:	Sending encrypted pw #86 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess K&#'MT;O5)rccn]] with id=86 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password K&#'MT;O5)rccn]]!
+
+[SERVER]	Created plain pw )$hlJ7;^5_LSyHLb with len=16 and id= 87
+[SERVER]:	Sending encrypted pw #87 to client #0.
+[SERVER]:	Sending encrypted pw #87 to client #1.
+[SERVER]:	Sending encrypted pw #87 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess )$hlJ7;^5_LSyHLb with id=87 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password )$hlJ7;^5_LSyHLb!
+
+[SERVER]	Created plain pw K1R0yZ8'IkzT/Yl6 with len=16 and id= 88
+[SERVER]:	Sending encrypted pw #88 to client #0.
+[SERVER]:	Sending encrypted pw #88 to client #1.
+[SERVER]:	Sending encrypted pw #88 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess K1R0yZ8'IkzT/Yl6 with id=88 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password K1R0yZ8'IkzT/Yl6!
+
+[SERVER]	Created plain pw ZiZ1lWG%iYnI'MHr with len=16 and id= 89
+[SERVER]:	Sending encrypted pw #89 to client #0.
+[SERVER]:	Sending encrypted pw #89 to client #1.
+[SERVER]:	Sending encrypted pw #89 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ZiZ1lWG%iYnI'MHr with id=89 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password ZiZ1lWG%iYnI'MHr!
+
+[SERVER]	Created plain pw 1 =#[HO~sy"ms}?\ with len=16 and id= 90
+[SERVER]:	Sending encrypted pw #90 to client #0.
+[SERVER]:	Sending encrypted pw #90 to client #1.
+[SERVER]:	Sendinypter #0]:	Trying to generate printable password for encrypted password # 71.
+[Decrypter #0]:	Stopped generating keys for password # 71 after 1 iterations because received encrypted pasword # 72
+[Decrypter #0]:	Stopped generating keys for password # 72 after 13607 iterations because received encrypted pasword # 73
+[Decrypter #0]:	Stopped generating keys for password # 73 after 2971 iterations because received encrypted pasword # 74
+[Decrypter #0]:	Stopped generating keys for password # 74 after 13256 iterations because received encrypted pasword # 75
+[Decrypter #0]:	Stopped generating keys for password # 75 after 26913 iterations because received encrypted pasword # 76
+[Decrypter #0]:	Stopped generating keys for password # 76 after 7859 iterations because received encrypted pasword # 77
+[Decrypter #0]:	Stopped generating keys for password # 77 after 10566 iterations because received encrypted pasword # 78
+[Decrypter #0]:	After 7638 iterations, found printable guess 3swbe<~JQ$;oUlS} for encrypted password #78.
+[Decrypter #0]:	Sending server plain pw guess 3swbe<~JQ$;oUlS} with id=78
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 78.
+[Decrypter #0]:	Stopped generating keys for password # 78 after 1 iterations because received encrypted pasword # 79
+[Decrypter #0]:	Stopped generating keys for password # 79 after 1 iterations because received encrypted pasword # 80
+[Decrypter #0]:	After 120 iterations, found printable guess ~MYIFCbLzX6>{p(! for encrypted password #80.
+[Decrypter #0]:	Sending server plain pw guess ~MYIFCbLzX6>{p(! with id=80
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 80.
+[Decrypter #0]:	Stopped generating keys for password # 80 after 1 iterations because received encrypted pasword # 81
+[Decrypter #0]:	After 21854 iterations, found printable guess &z-eC+G54A/2U=X2 for encrypted password #81.
+[Decrypter #0]:	Sending server plain pw guess &z-eC+G54A/2U=X2 with id=81
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 81.
+[Decrypter #0]:	Stopped generating keys for password # 81 after 1 iterations because received encrypted pasword # 82
+[Decrypter #0]:	Stopped generating keys for password # 82 after 20858 iterations because received encrypted pasword # 83
+[Decrypter #0]:	Stopped generating keys for password # 83 after 15725 iterations because received encrypted pasword # 84
+[Decrypter #0]:	After 8702 iterations, found printable guess fT\_$-++``:%LO@- for encrypted password #84.
+[Decrypter #0]:	Sending server plain pw guess fT\_$-++``:%LO@- with id=84
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 84.
+[Decrypter #0]:	Stopped generating keys for password # 84 after 1 iterations because received encrypted pasword # 85
+[Decrypter #0]:	Stopped generating keys for password # 85 after 55273 iterations because received encrypted pasword # 86
+[Decrypter #0]:	Stopped generating keys for password # 86 after 8791 iterations because received encrypted pasword # 87
+[Decrypter #0]:	After 11665 iterations, found printable guess )$hlJ7;^5_LSyHLb for encrypted password #87.
+[Decrypter #0]:	Sending server plain pw guess )$hlJ7;^5_LSyHLb with id=87
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 87.
+[Decrypter #0]:	Stopped generating keys for password # 87 after 1 iterations because received encrypted pasword # 88
+[Decrypter #0]:	Stopped generating keys for password # 88 after 13650 iterations because received encrypted pasword # 89
+[Decrypter #0]:	Stopped generating keys for password # 89 after 18500 iterations because received encrypted pasword # 90
+[Decrypter #0]:	Stopped generating keys for password # 90 after 47441 iterations because received encrypted pasword # 91
+[Decrypter #0]:	After 17191 iterations, found printable guess &_d3.RjT]\ZuGDwh for encrypted password #91.
+[Decrypter #0]:	Sending server plain pw guess &_d3.RjT]\ZuGDwh with id=91
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 91.
+[Decrypter #0]:	Stopped generating keys forsword # 70 after 1 iterations because received encrypted pasword # 71
+[Decrypter #1]:	Stopped generating keys for password # 71 after 27100 iterations because received encrypted pasword # 72
+[Decrypter #1]:	Stopped generating keys for password # 72 after 13492 iterations because received encrypted pasword # 73
+[Decrypter #1]:	Stopped generating keys for password # 73 after 2168 iterations because received encrypted pasword # 74
+[Decrypter #1]:	Stopped generating keys for password # 74 after 11407 iterations because received encrypted pasword # 75
+[Decrypter #1]:	Stopped generating keys for password # 75 after 30204 iterations because received encrypted pasword # 76
+[Decrypter #1]:	After 6369 iterations, found printable guess Q*wiH"Hozd?fe@S. for encrypted password #76.
+[Decrypter #1]:	Sending server plain pw guess Q*wiH"Hozd?fe@S. with id=76
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 76.
+[Decrypter #1]:	Stopped generating keys for password # 76 after 1 iterations because received encrypted pasword # 77
+[Decrypter #1]:	Stopped generating keys for password # 77 after 8337 iterations because received encrypted pasword # 78
+[Decrypter #1]:	Stopped generating keys for password # 78 after 8058 iterations because received encrypted pasword # 79
+[Decrypter #1]:	After 229 iterations, found printable guess >y^!(_b<n}\P<f@> for encrypted password #79.
+[Decrypter #1]:	Sending server plain pw guess >y^!(_b<n}\P<f@> with id=79
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 79.
+[Decrypter #1]:	Stopped generating keys for password # 79 after 1 iterations because received encrypted pasword # 80
+[Decrypter #1]:	Stopped generating keys for password # 80 after 2848 iterations because received encrypted pasword # 81
+[Decrypter #1]:	Stopped generating keys for password # 81 after 21175 iterations because received encrypted pasword # 82
+[Decrypter #1]:	After 20515 iterations, found printable guess )B!wXgQUR ;h-&Ts for encrypted password #82.
+[Decrypter #1]:	Sending server plain pw guess )B!wXgQUR ;h-&Ts with id=82
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 82.
+[Decrypter #1]:	Stopped generating keys for password # 82 after 1 iterations because received encrypted pasword # 83
+[Decrypter #1]:	Stopped generating keys for password # 83 after 15128 iterations because received encrypted pasword # 84
+[Decrypter #1]:	Stopped generating keys for password # 84 after 8547 iterations because received encrypted pasword # 85
+[Decrypter #1]:	Stopped generating keys for password # 85 after 56532 iterations because received encrypted pasword # 86
+[Decrypter #1]:	Stopped generating keys for password # 86 after 8271 iterations because received encrypted pasword # 87
+[Decrypter #1]:	Stopped generating keys for password # 87 after 11745 iterations because received encrypted pasword # 88
+[Decrypter #1]:	Stopped generating keys for password # 88 after 15806 iterations because received encrypted pasword # 89
+[Decrypter #1]:	Stopped generating keys for password # 89 after 18408 iterations because received encrypted pasword # 90
+[Decrypter #1]:	After 48424 iterations, found printable guess 1 =#[HO~sy"ms}?\ for encrypted password #90.
+[Decrypter #1]:	Sending server plain pw guess 1 =#[HO~sy"ms}?\ with id=90
+
+[Decrypter #1]:	Trying to generate printable password for encrypted password # 90.
+[Decrypter #1]:	Stopped generating keys for password # 90 after 1 iterations because received encrypted pasword # 91
+[Decrypter #1]:	Stopped generating keys for password # 91 after 15155 iterations because received encrypted pasword # 92
+[Decrypter #1]:	Stopped generating keys for password # 92 after 9123 iterations because received encrypted pasword # 93
+[Decrypter #1]:	Stopped generating keys for password # 93 after 2114 iterations because received encrypted pasword # 94
+[Decrypter #1]:	Stopped generating keys for password # 94 after 11272 iterations because received encrypted pasword # 95
+[Decrypter #1]:	Stopped generating keys for password # 95 after 11699 iterations because g encrypted pw #90 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 1 =#[HO~sy"ms}?\ with id=90 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password 1 =#[HO~sy"ms}?\!
+
+[SERVER]	Created plain pw &_d3.RjT]\ZuGDwh with len=16 and id= 91
+[SERVER]:	Sending encrypted pw #91 to client #0.
+[SERVER]:	Sending encrypted pw #91 to client #1.
+[SERVER]:	Sending encrypted pw #91 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess &_d3.RjT]\ZuGDwh with id=91 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password &_d3.RjT]\ZuGDwh!
+
+[SERVER]	Created plain pw 7}|!\3-y!=[rh!"g with len=16 and id= 92
+[SERVER]:	Sending encrypted pw #92 to client #0.
+[SERVER]:	Sending encrypted pw #92 to client #1.
+[SERVER]:	Sending encrypted pw #92 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 7}|!\3-y!=[rh!"g with id=92 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password 7}|!\3-y!=[rh!"g!
+
+[SERVER]	Created plain pw >fKA/\dtB6eiC\S1 with len=16 and id= 93
+[SERVER]:	Sending encrypted pw #93 to client #0.
+[SERVER]:	Sending encrypted pw #93 to client #1.
+[SERVER]:	Sending encrypted pw #93 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess >fKA/\dtB6eiC\S1 with id=93 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password >fKA/\dtB6eiC\S1!
+
+[SERVER]	Created plain pw 7JuG5_1\Q/U3C0|k with len=16 and id= 94
+[SERVER]:	Sending encrypted pw #94 to client #0.
+[SERVER]:	Sending encrypted pw #94 to client #1.
+[SERVER]:	Sending encrypted pw #94 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess 7JuG5_1\Q/U3C0|k with id=94 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password 7JuG5_1\Q/U3C0|k!
+
+[SERVER]	Created plain pw J@DDH3ko0R%-,)4Z with len=16 and id= 95
+[SERVER]:	Sending encrypted pw #95 to client #0.
+[SERVER]:	Sending encrypted pw #95 to client #1.
+[SERVER]:	Sending encrypted pw #95 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess J@DDH3ko0R%-,)4Z with id=95 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password J@DDH3ko0R%-,)4Z!
+
+[SERVER]	Created plain pw Ig/|VEkIPdx`>#od with len=16 and id= 96
+[SERVER]:	Sending encrypted pw #96 to client #0.
+[SERVER]:	Sending encrypted pw #96 to client #1.
+[SERVER]:	Sending encrypted pw #96 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess Ig/|VEkIPdx`>#od with id=96 from client_id=0
+[SERVER]:	Decrypter #0 successfully decrypted password Ig/|VEkIPdx`>#od!
+
+[SERVER]	Created plain pw ieC5_%iaZ^C!%M66 with len=16 and id= 97
+[SERVER]:	Sending encrypted pw #97 to client #0.
+[SERVER]:	Sending encrypted pw #97 to client #1.
+[SERVER]:	Sending encrypted pw #97 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ieC5_%iaZ^C!%M66 with id=97 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password ieC5_%iaZ^C!%M66!
+
+[SERVER]	Created plain pw >cMFOuW<CT~.X??/ with len=16 and id= 98
+[SERVER]:	Sending encrypted pw #98 to client #0.
+[SERVER]:	Sending encrypted pw #98 to client #1.
+[SERVER]:	Sending encrypted pw #98 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess >cMFOuW<CT~.X??/ with id=98 from client_id=3
+[SERVER]:	Decrypter #3 successfully decrypted password >cMFOuW<CT~.X??/!
+
+[SERVER]	Created plain pw ,\9 !AE CGf%,VV| with len=16 and id= 99
+[SERVER]:	Sending encrypted pw #99 to client #0.
+[SERVER]:	Sending encrypted pw #99 to client #1.
+[SERVER]:	Sending encrypted pw #99 to client #3.
+[SERVER]	Reading message
+[SERVER]	Received message of type 2.
+[SERVER]:	Received plain pw guess ,\9 !AE CGf%,VV| with id=99 from client_id=1
+[SERVER]:	Decrypter #1 successfully decrypted password ,\9 !AE CGf%,VV password # 91 after 1 iterations because received encrypted pasword # 92
+[Decrypter #0]:	Stopped generating keys for password # 92 after 7363 iterations because received encrypted pasword # 93
+[Decrypter #0]:	After 2368 iterations, found printable guess >fKA/\dtB6eiC\S1 for encrypted password #93.
+[Decrypter #0]:	Sending server plain pw guess >fKA/\dtB6eiC\S1 with id=93
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 93.
+[Decrypter #0]:	Stopped generating keys for password # 93 after 1 iterations because received encrypted pasword # 94
+[Decrypter #0]:	Stopped generating keys for password # 94 after 10765 iterations because received encrypted pasword # 95
+[Decrypter #0]:	After 13334 iterations, found printable guess J@DDH3ko0R%-,)4Z for encrypted password #95.
+[Decrypter #0]:	Sending server plain pw guess J@DDH3ko0R%-,)4Z with id=95
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 95.
+[Decrypter #0]:	Stopped generating keys for password # 95 after 1 iterations because received encrypted pasword # 96
+[Decrypter #0]:	After 23438 iterations, found printable guess Ig/|VEkIPdx`>#od for encrypted password #96.
+[Decrypter #0]:	Sending server plain pw guess Ig/|VEkIPdx`>#od with id=96
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 96.
+[Decrypter #0]:	Stopped generating keys for password # 96 after 1 iterations because received encrypted pasword # 97
+[Decrypter #0]:	Stopped generating keys for password # 97 after 44009 iterations because received encrypted pasword # 98
+[Decrypter #0]:	Stopped generating keys for password # 98 after 9146 iterations because received encrypted pasword # 99
+[Decrypter #0]:	Stopped generating keys for password # 99 after 34085 iterations because received encrypted pasword # 100
+[Decrypter #0]:	Stopped generating keys for password # 100 after 7341 iterations because received encrypted pasword # 101
+[Decrypter #0]:	After 9811 iterations, found printable guess r4)0%*1W"#gE$Fq_ for encrypted password #101.
+[Decrypter #0]:	Sending server plain pw guess r4)0%*1W"#gE$Fq_ with id=101
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 101.
+[Decrypter #0]:	Stopped generating keys for password # 101 after 1 iterations because received encrypted pasword # 102
+[Decrypter #0]:	After 17338 iterations, found printable guess DSbfQ:\,U4f0S-dL for encrypted password #102.
+[Decrypter #0]:	Sending server plain pw guess DSbfQ:\,U4f0S-dL with id=102
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 102.
+[Decrypter #0]:	Stopped generating keys for password # 102 after 1 iterations because received encrypted pasword # 103
+[Decrypter #0]:	After 4084 iterations, found printable guess rH.zvaew?cq%"Y'  for encrypted password #103.
+[Decrypter #0]:	Sending server plain pw guess rH.zvaew?cq%"Y'  with id=103
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 103.
+[Decrypter #0]:	Stopped generating keys for password # 103 after 1 iterations because received encrypted pasword # 104
+[Decrypter #0]:	Stopped generating keys for password # 104 after 8929 iterations because received encrypted pasword # 105
+[Decrypter #0]:	After 25623 iterations, found printable guess DvF~XwlV=0vgd]Ih for encrypted password #105.
+[Decrypter #0]:	Sending server plain pw guess DvF~XwlV=0vgd]Ih with id=105
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 105.
+[Decrypter #0]:	Stopped generating keys for password # 105 after 1 iterations because received encrypted pasword # 106
+[Decrypter #0]:	After 19241 iterations, found printable guess n@&*|`o2p/,-5a u for encrypted password #106.
+[Decrypter #0]:	Sending server plain pw guess n@&*|`o2p/,-5a u with id=106
+
+[Decrypter #0]:	Trying to generate printable password for encrypted password # 106.
+[Decrypter #0]:	Stopped generating keys for password # 106 after 1 iterations because received encrypted pasword # 107
+[Decrypter #0]:	After 79759 iterations, found printable guess 5nV@rM+MiRuSOLd# for encrypted pas
