@@ -59,7 +59,7 @@ bool parseProgramParams(int argc, char* argv[], int* out_client_id, char out_mq_
 
 bool updateEncryptedPW(mqd_t mq_to_read_from, Msg* incoming_msg_p)
 {
-    if (doesMQHaveMessages(mq_to_read_from))
+    while (doesMQHaveMessages(mq_to_read_from))
     {
         readMessage(mq_to_read_from, incoming_msg_p);
         return true;

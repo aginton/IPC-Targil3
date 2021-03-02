@@ -16,8 +16,6 @@ typedef struct programParams
 
 
 
-char* launcher_str = "[LAUNCHER]";
-
 char* createPathToProgramString(char* path_to_program, char* program_name)
 {
     char* res = malloc(strlen(path_to_program) + strlen(program_name)+1);
@@ -43,7 +41,6 @@ void launchServer()
 	}
     printf("[LAUNCHER]\tSpawned server process.\n");
 }
-
 
 void launchDecrypters(int num_of_decrypters, int rounds_to_live)
 {

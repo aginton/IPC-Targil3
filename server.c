@@ -20,6 +20,9 @@ typedef struct serverPW {
     Key key;
 } ServerPW;
 
+static bool connected_clients[MAX_NUMBER_CONNECTIONS];
+static mqd_t client_mqs[MAX_NUMBER_CONNECTIONS];
+static char client_mq_names[MAX_NUMBER_CONNECTIONS][MAX_MQ_NAME_LEN + 1];
 
 int createAndEncryptNewPW(ServerPW *out_server_pw_p)
 {
@@ -43,21 +46,21 @@ int createAndEncryptNewPW(ServerPW *out_server_pw_p)
 }
 
 
-void sendClientEncryptedPW(PW* encrypted_pw_p, mqd_t client_mq)
+bool sendClientEncryptedPW(PW* encrypted_pw_p, mqd_t client_mq)
 {
-    
     ASSERT(NULL != encrypted_pw_p, "encrypted pw cannot be NULL\n");
     uint8_t buffer[sizeof(Msg) + sizeof(EncrypterMsg)] = {0};
     Msg* msg_p = (Msg*)buffer;
     msg_p->msg_type = ENCRYPTER_ENCRYPTED_PW;
     EncrypterMsg* encryptedMsg = (EncrypterMsg*)(msg_p->data);
     encryptedMsg->encrypted_pw = *encrypted_pw_p;
-    sendMsg(client_mq, msg_p, MQ_MAX_MSG_SIZE, 0);
+    
+    return tryToSendMsg(client_mq, msg_p, MQ_MAX_MSG_SIZE, 0);
 }
 
 
 
-void handleConnectRequest(ConnectReq* connect_req_p, PW* encrypted_pw_p, bool connected_clients[], mqd_t client_mqs[])
+void handleConnectRequest(ConnectReq* connect_req_p, PW* encrypted_pw_p)
 {
     ASSERT((NULL != connect_req_p) && (NULL != encrypted_pw_p), "handleConnectRequest received NULL pointer\n");
 
@@ -82,10 +85,39 @@ void handleConnectRequest(ConnectReq* connect_req_p, PW* encrypted_pw_p, bool co
     struct mq_attr attr;
     setMQAttrbs(0, DECRYPTER_MQ_MAX_MSGS, MQ_MAX_MSG_SIZE, 0, &attr);
     client_mqs[client_id] = openWriteOnlyMQ(connect_req_p->mq_name, &attr);
+    strcpy(client_mq_names[client_id], connect_req_p->mq_name);
     printf("[SERVER]:\tAdded client #%d\n", connect_req_p->client_id);
     
     printf("[SERVER]:\tSending encrypted pw #%d to client #%d.\n", encrypted_pw_p->pw_id, connect_req_p->client_id);
     sendClientEncryptedPW(encrypted_pw_p, client_mqs[client_id]);
+}
+
+bool disconnect_client(int client_id)
+{
+    bool success = false;
+
+    if(client_id >= 0 && client_id < MAX_NUMBER_CONNECTIONS)
+    {
+        if(connected_clients[client_id])
+        {
+            mq_close(client_mqs[client_id]);
+            mq_unlink(client_mq_names[client_id]);
+            client_mq_names[client_id][0] = '\0';   
+            connected_clients[client_id] = false;
+            printf("[SERVER]:\tClient #%d Disconnected.\n", client_id);
+            success = true;
+        }
+        else
+        {
+            printf("[SERVER]:\tERROR: client must connected to disconnect\n");
+        }
+    }
+    else
+    {
+        printf("[SERVER]:\tERROR: client id must be in the range [0-%d]\n", MAX_NUMBER_CONNECTIONS);
+    }
+
+    return success;
 }
 
 void handleDisconnectRequest(DisconnectReq* disconnect_req_p, bool connected_clients[], mqd_t client_mqs[])
@@ -95,22 +127,7 @@ void handleDisconnectRequest(DisconnectReq* disconnect_req_p, bool connected_cli
         "Error: client_id is out of bounds in handleDisconnectRequest");
     
     int client_id = disconnect_req_p->client_id;
-    if(client_id >= 0 && client_id < MAX_NUMBER_CONNECTIONS)
-    {
-        if (connected_clients[client_id])
-        {
-            mq_close(client_mqs[client_id]);
-            mq_unlink(disconnect_req_p->mq_name);
-            connected_clients[client_id] = false;
-            printf("[SERVER]:\tReceived Disconnect Request from client %d.\n", client_id);
-            return;
-        }
-        printf("[SERVER]:\tERROR: client must be connected before disconnecting.\n");
-    }
-    else
-    {
-        printf("[SERVER]:\tERROR: client id must be in the range [0-%d]\n", MAX_NUMBER_CONNECTIONS);
-    }
+    disconnect_client(client_id);
 }
 
 DECRYPTED_PW_GUESS_RET_STATUS checkDecryptedPWGuess(PW plain_pw, DecrypterMsg* decrypter_msg_p)
@@ -153,7 +170,10 @@ void handlePWGuess(DecrypterMsg* decrypter_msg_p, ServerPW* server_pw_p, bool co
             if (connected_clients[i] == true)
             {
                 printf("[SERVER]:\tSending encrypted pw #%d to client #%d.\n", server_pw_p->encrypted_pw.pw_id, i);
-                sendClientEncryptedPW(&(server_pw_p->encrypted_pw), client_mqs[i]);
+                if (!sendClientEncryptedPW(&(server_pw_p->encrypted_pw), client_mqs[i]))
+                {
+                    disconnect_client(i);
+                }
             }
         }
         break;
@@ -164,7 +184,7 @@ void handlePWGuess(DecrypterMsg* decrypter_msg_p, ServerPW* server_pw_p, bool co
 }
 
 
-void handleMsg(ServerPW* server_pw_p, mqd_t server_mq, bool connected_clients[], mqd_t client_mqs[])
+void handleMsg(ServerPW* server_pw_p, mqd_t server_mq)
 {
     uint8_t buffer[MQ_MAX_MSG_SIZE] = {0};
     Msg* msg_p = (Msg*)buffer;
@@ -177,7 +197,7 @@ void handleMsg(ServerPW* server_pw_p, mqd_t server_mq, bool connected_clients[],
     switch (msg_type)
     {
     case CONNECT_REQUEST:
-        handleConnectRequest((ConnectReq*)msg_p->data, &(server_pw_p->encrypted_pw), connected_clients, client_mqs);
+        handleConnectRequest((ConnectReq*)msg_p->data, &(server_pw_p->encrypted_pw));
         break;
 
     case DISCONNECT_REQUEST:
@@ -215,13 +235,10 @@ int main()
     ServerPW server_pw = {0};
     initServerPW(&server_pw);
 
-    
-    bool connected_clients[MAX_NUMBER_CONNECTIONS];
-    mqd_t client_mqs[MAX_NUMBER_CONNECTIONS];
     createAndEncryptNewPW(&server_pw);
 
     while (true)
     {
-        handleMsg(&server_pw, server_mq, connected_clients, client_mqs);
+        handleMsg(&server_pw, server_mq);
     }
 }
