@@ -113,6 +113,7 @@ int main(int argc, char *argv[])
 
     printf("[LAUNCHER]\tFinished parseArguments, found num_decrypters=%d and rounds_to_live=%d\n", num_of_decrypters, rounds_to_live);
     launchServer();
+    sleep(1);
     launchDecrypters(num_of_decrypters, rounds_to_live);
     printf("[LAUNCHER]\tFinished spawning server and decrypters.\n");
     pause();
